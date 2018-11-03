@@ -1,0 +1,14 @@
+---
+- name: Install Google Chrome from an MSI 
+  hosts: all 
+ 
+  tasks:
+    - name: Download the Google Chrome installer
+      win_get_url:
+        url: 'http://dl.google.com/edgedl/chrome/install/GoogleChromeStandaloneEnterprise.msi'
+        dest: 'C:\Users\Administrator\Downloads\GoogleChromeStandaloneEnterprise.msi'
+
+    - name: Install MSI
+      win_package: 
+        path: 'C:\Users\Administrator\Downloads\GoogleChromeStandaloneEnterprise.msi'
+        state: present
