@@ -1,7 +1,6 @@
 ---
-- name: Collect only facts returned by facter
-  setup:
-    gather_subset:
-      - '!all'
-      - '!any'
-      - facter
+- name: Gather Windows Facts 
+  hosts: "{{ target }}"
+  tasks:
+    - debug: var=vars
+    - debug: var=hostvars[inventory_hostname]
