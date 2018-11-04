@@ -4,4 +4,4 @@
   gather_facts: false
   tasks:
   
-    - win_shell: Get-CimInstance Win32_OperatingSystem | Select-Object  Caption, InstallDate, ServicePackMajorVersion, OSArchitecture, BootDevice,  BuildNumber, CSName | FL
+    - win_shell: get-wmiobject -class win32_OperatingSystem | Select-Object -Property CSName,ProductType,Caption,Version,OSArchitecture,CSDVersion
