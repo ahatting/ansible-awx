@@ -6,5 +6,5 @@
   
     - name: Install Notepad++
       win_chocolatey:
-        name: notepadplusplus.install
+        name: notepadplusplus
         state: present
