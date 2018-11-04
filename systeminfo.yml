@@ -1,10 +1,7 @@
 ---
-- name:  Install 7zip
+- name:  Retrieve system info
   hosts: all
   gather_facts: false
   tasks:
   
-    - name: Install 7zip
-      win_chocolatey:
-        name: 7zip
-        state: present
+    - win_shell: Get-CimInstance Win32_OperatingSystem | Select-Object  Caption, InstallDate, ServicePackMajorVersion, OSArchitecture, BootDevice,  BuildNumber, CSName | FL
