@@ -5,3 +5,5 @@
   tasks:
   
     - win_shell: Get-CimInstance Win32_OperatingSystem | Select-Object  Caption, InstallDate, ServicePackMajorVersion, OSArchitecture, BootDevice,  BuildNumber, CSName | FL
+    - debug:
+      var: win_shell_result.stdout_lines.object_name
