@@ -1,0 +1,7 @@
+---
+- name:  Retrieve system info
+  hosts: all
+  gather_facts: false
+  tasks:
+  
+    - win_shell: Import-module servermanager ; Get-WindowsFeature | where-object {$_.Installed -eq $True} | Sort-Object FeatureType, DisplayName | format-list DisplayName,FeatureType
