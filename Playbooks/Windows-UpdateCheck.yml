@@ -1,6 +1,6 @@
 ---
 
-- Name: Check Windows host for available updates
+- name: Check Windows host for available updates
   hosts: all
 
   tasks:
