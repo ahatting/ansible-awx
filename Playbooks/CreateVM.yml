@@ -1,0 +1,44 @@
+---
+- hosts: all
+  gather_facts: false
+  connection: local
+  tasks:
+  # get date
+  - set_fact: creationdate="{{lookup('pipe','date "+%Y/%m/%d %H:%M"')}}"
+  # Create a VM from a template
+  - name: create the VM
+    vmware_guest:
+      hostname: '{{ vsphere_host }}'
+      username: '{{ vsphere_user }}'
+      password: '{{ vsphere_password }}'
+      validate_certs: no
+      esxi_hostname: 192.168.0.13
+      datacenter: 'Datacenter'
+      folder: Hosts
+      name: '{{ inventory_hostname }}'
+      state: poweredon
+      guest_id: rhel7_64Guest
+      annotation: "{{ notes }} - {{ creationdate }}"
+      disk:
+      - size_gb: 16
+        type: thin
+        datastore: 'Datastore-1'
+      networks:
+      - name: VM Network
+        ip: '{{ custom_ip }}'
+        netmask: 255.255.252.0
+        gateway: 192.168.0.1
+        dns_servers:
+        - 192.168.0.29
+        - 8.8.4.4
+      hardware:
+        memory_mb: 1024
+        num_cpus: 1
+      customization:
+        dns_servers:
+        - 192.168.0.29
+        - 8.8.4.4
+        domain : armandit.com
+        hostname: '{{ inventory_hostname }}'
+      template: ubuntu-16.04.2-server-amd64
+      wait_for_ip_address: yes
