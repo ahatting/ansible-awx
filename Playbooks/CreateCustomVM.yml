@@ -1,7 +1,7 @@
 ---
-- hosts: All
-  connection: local
+- hosts: all
   gather_facts: false
+  connection: local
   
   vars:
    guests: WEB22, WEB23, WEB24
