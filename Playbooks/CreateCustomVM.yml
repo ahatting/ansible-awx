@@ -47,5 +47,5 @@
       template: ubuntu-16.04.2-server-amd64
       wait_for_ip_address: yes
     with_subelements:
-     -"{{ guests }}"
+     -'{{ guests }}'
      - name
