@@ -17,6 +17,7 @@
       folder: Hosts
       name: '{{ inventory_hostname }}'
       state: poweredon
+      guest_id: ubuntu64Guest
       disk:
       - size_gb: 16
         type: thin
