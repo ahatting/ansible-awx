@@ -1,0 +1,56 @@
+---
+- hosts: local
+  gather_facts: false
+  
+  vars:
+   guests:
+    - esxi_hostname: 192.168.0.13
+      name:
+       - WEB22
+    - esxi_hostname: 192.168.0.13
+      name:
+       - WEB23
+       - WEB24
+ 
+ 
+  tasks:
+  # get date
+  - set_fact: creationdate="{{lookup('pipe','date "+%Y/%m/%d %H:%M"')}}"
+  # Create a VM from a template
+  - vmware_guest:
+      hostname: '{{ item.0.esxi_hostname }}'
+      username: '{{ vsphere_user }}'
+      password: '{{ vsphere_password }}'
+      validate_certs: no
+      esxi_hostname: 192.168.0.13
+      datacenter: 'Datacenter'
+      folder: Hosts
+      name: '{{ item.1 }}'
+      state: poweredon
+      guest_id: ubuntu64Guest
+      disk:
+      - size_gb: 16
+        type: thin
+        datastore: 'Datastore-1'
+      networks:
+      - name: VM Network
+        ip: '{{ custom_ip }}'
+        netmask: 255.255.255.0
+        gateway: 192.168.0.1
+        dns_servers:
+        - 192.168.0.29
+        - 8.8.4.4
+      hardware:
+        memory_mb: 1024
+        num_cpus: 1
+      customization:
+        dns_servers:
+        - 192.168.0.29
+        - 8.8.4.4
+        domain : armandit.com
+        hostname: '{{ item.1 }}'
+      template: ubuntu-16.04.2-server-amd64
+      wait_for_ip_address: yes
+    with_subelements:
+     -"{{ guests }}"
+     - name
