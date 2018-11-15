@@ -1,6 +1,6 @@
 ---
 - hosts: All
-  Connection: local
+  connection: local
   gather_facts: false
   
   vars:
