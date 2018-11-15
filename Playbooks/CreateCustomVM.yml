@@ -28,7 +28,7 @@
       datacenter: 'Datacenter'
       folder: Hosts
       name: '{{ item.1 }}'
-      state: poweredon
+      state: poweredoff
       guest_id: ubuntu64Guest
       disk:
       - size_gb: 16
