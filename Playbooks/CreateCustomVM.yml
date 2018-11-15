@@ -4,7 +4,14 @@
   connection: local
   
   vars:
-   guests: WEB22, WEB23, WEB24
+   guests:
+    - esxi_hostname: 192.168.0.11
+      name:
+       - WEB22
+    - esxi_hostname: 192.168.0.13
+      name:
+       - WEB23
+       - WEB24
  
  
   tasks:
@@ -16,10 +23,10 @@
       username: '{{ vsphere_user }}'
       password: '{{ vsphere_password }}'
       validate_certs: no
-      esxi_hostname: 192.168.0.13
+      esxi_hostname: '{{ item.0.esxi_hostname }}'
       datacenter: 'Datacenter'
       folder: Hosts
-      name: '{{ guests }}'
+      name: '{{ item.1 }}'
       state: poweredon
       guest_id: ubuntu64Guest
       disk:
@@ -36,8 +43,9 @@
         - 192.168.0.29
         - 8.8.4.4
         domain : armandit.com
-        hostname: '{{ guests }}'
+        hostname: '{{ item.1 }}'
       template: ubuntu-16.04.2-server-amd64
       wait_for_ip_address: yes
-    with_items:
-     -'{{ guests }}'
+    with_subelements:
+     -"{{ guests }}"
+     - name
