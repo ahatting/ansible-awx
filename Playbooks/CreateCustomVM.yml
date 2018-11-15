@@ -6,12 +6,12 @@
   vars:
     guests:
       - esxi_hostname: 192.168.0.11
-        name:
-          - WEB22
+        hostname:
+          - name: WEB22
       - esxi_hostname: 192.168.0.13
-        name:
-          - WEB23
-          - WEB24
+        hostname:
+          - name: WEB23
+          - name: WEB24
  
  
   tasks:
