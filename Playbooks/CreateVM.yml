@@ -41,9 +41,3 @@
         hostname: '{{ inventory_hostname }}'
       template: ubuntu-16.04.2-server-amd64
       wait_for_ip_address: yes
-   - vsphere_guest:
-      vcenter_hostname: '{{ vsphere_host }}'
-      username: '{{ vsphere_user }}'
-      password: '{{ vsphere_password }}'
-      guest: '{{ inventory_hostname }}'
-      vmware_guest_facts: yes
