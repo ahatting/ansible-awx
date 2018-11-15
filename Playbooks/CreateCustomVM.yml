@@ -6,12 +6,15 @@
   vars:
     guests:
       - esxi_hostname: 192.168.0.11
-        hostname:
+        host:
           - name: WEB22
+            hostname: WEB22
       - esxi_hostname: 192.168.0.13
-        hostname:
+        host:
           - name: WEB23
+            hostname: WEB23
           - name: WEB24
+            hostname: WEB24
  
  
   tasks:
@@ -43,7 +46,7 @@
         - 192.168.0.29
         - 8.8.4.4
         domain : armandit.com
-        hostname: '{{ item.1.name }}'
+        hostname: '{{ item.1.hostname }}'
       template: ubuntu-16.04.2-server-amd64
       wait_for_ip_address: yes
     with_subelements:
