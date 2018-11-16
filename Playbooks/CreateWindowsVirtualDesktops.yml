@@ -1,0 +1,43 @@
+---
+- hosts: all
+  gather_facts: false
+  connection: local
+  
+  vars:
+    guests:
+      - esxi_hostname: 192.168.0.11
+        hosts: 
+          - DESKTOP-01
+          - DESKTOP-02
+          - DESKTOP-03
+          - DESKTOP-04
+          - DESKTOP-05
+          - DESKTOP-06
+      - esxi_hostname: 192.168.0.13
+        hosts: 
+          - DESKTOP-07
+          - DESKTOP-08
+          - DESKTOP-09
+          - DESKTOP-10
+ 
+  
+  tasks:
+  # get date
+  - set_fact: creationdate="{{lookup('pipe','date "+%Y/%m/%d %H:%M"')}}"
+  # Create a VM from a template
+  - vmware_guest:
+      hostname: '{{ vsphere_host }}'
+      username: '{{ vsphere_user }}'
+      password: '{{ vsphere_password }}'
+      validate_certs: no
+      esxi_hostname: '{{ item.0.esxi_hostname }}'
+      datacenter: 'Datacenter'
+      folder: Hosts
+      name: '{{ item.1 }}'
+      state: present
+      guest_id: windows9_64guest
+      template: Windows-10-1803-x64
+      wait_for_ip_address: no
+    with_subelements:
+      - '{{ guests }}'
+      - hosts
