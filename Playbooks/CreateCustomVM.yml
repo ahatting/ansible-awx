@@ -6,15 +6,13 @@
   vars:
     guests:
       - esxi_hostname: 192.168.0.11
-        name: 
-          - "WEB21"
-        datastore:
-          - "ESXi-2"
+        hosts: 
+          - name: WEB21
+            datastore: ESXi-2
       - esxi_hostname: 192.168.0.13
-        name: 
-          - "WEB22"
-        datastore:
-          - "ESXi-1"
+        hosts: 
+          - name: WEB22
+            datastore: ESXi-1
  
   
   tasks:
