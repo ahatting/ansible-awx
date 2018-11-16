@@ -33,7 +33,7 @@
       disk:
       - size_gb: 16
         type: thin
-        datastore: 'Datastore'
+        datastore: 'CloudStore'
       networks:
       - name: VM Network
       hardware:
