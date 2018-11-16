@@ -7,18 +7,12 @@
     guests:
       - esxi_hostname: 192.168.0.11
         hosts: 
-          - DESKTOP-01
-          - DESKTOP-02
-          - DESKTOP-03
-          - DESKTOP-04
-          - DESKTOP-05
-          - DESKTOP-06
+          - name: WEB21
+            datastore: ESXi-2
       - esxi_hostname: 192.168.0.13
         hosts: 
-          - DESKTOP-07
-          - DESKTOP-08
-          - DESKTOP-09
-          - DESKTOP-10
+          - name: WEB22
+            datastore: ESXi-1
  
   
   tasks:
@@ -33,10 +27,25 @@
       esxi_hostname: '{{ item.0.esxi_hostname }}'
       datacenter: 'Datacenter'
       folder: Hosts
-      name: '{{ item.1 }}'
-      state: present
-      guest_id: windows9_64guest
-      template: Windows-10-1803-x64
+      name: '{{ item.1.name }}'
+      state: poweredoff
+      guest_id: ubuntu64Guest
+      disk:
+      - size_gb: 16
+        type: thin
+        datastore: '{{ item.1.datastore }}'
+      networks:
+      - name: VM Network
+      hardware:
+        memory_mb: 1024
+        num_cpus: 1
+      customization:
+        dns_servers:
+        - 192.168.0.29
+        - 8.8.4.4
+        domain : armandit.com
+        hostname: '{{ item.1.name }}'
+      template: ubuntu-16.04.2-server-amd64
       wait_for_ip_address: no
     with_subelements:
       - '{{ guests }}'
