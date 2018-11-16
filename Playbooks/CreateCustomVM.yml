@@ -29,7 +29,7 @@
       folder: Hosts
       name: '{{ item.1.name }}'
       state: present
-      guest_id: windows9_64Guest
+      guest_id: windows9_64guest
       disk:
       - size_gb: 2
         type: thin
