@@ -1,4 +1,8 @@
 ---
+- hosts: all
+  gather_facts: false
+  connection: local
+  
 - name: Gather all registered virtual machines
   vmware_vm_facts:
     hostname: '{{ vcenter_hostname }}'
