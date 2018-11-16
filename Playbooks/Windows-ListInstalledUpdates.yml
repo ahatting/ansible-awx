@@ -1,0 +1,7 @@
+---
+- name:  Retrieve system info
+  hosts: all
+  gather_facts: false
+  tasks:
+  
+    - win_shell: wmic qfe list
