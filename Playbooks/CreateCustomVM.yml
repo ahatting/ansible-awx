@@ -37,7 +37,7 @@
       state: present
       guest_id: windows9_64guest
       template: Windows-10-1803-x64
-      wait_for_ip_address: yes
+      wait_for_ip_address: no
     with_subelements:
       - '{{ guests }}'
       - hosts
