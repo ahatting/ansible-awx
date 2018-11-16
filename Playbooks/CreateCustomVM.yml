@@ -28,10 +28,10 @@
       datacenter: 'Datacenter'
       folder: Hosts
       name: '{{ item.1.name }}'
-      state: poweredon
+      state: present
       guest_id: ubuntu64Guest
       disk:
-      - size_gb: 16
+      - size_gb: 2
         type: thin
         datastore: '{{ item.1.datastore }}'
       networks:
