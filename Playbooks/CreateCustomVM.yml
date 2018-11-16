@@ -27,13 +27,13 @@
       esxi_hostname: '{{ item.0.esxi_hostname }}'
       datacenter: 'Datacenter'
       folder: Hosts
-      name: '{{ item.1 }}'
-      state: poweredoff
+      name: '{{ item.1.name }}'
+      state: poweredon
       guest_id: ubuntu64Guest
       disk:
       - size_gb: 16
         type: thin
-        datastore: '{{ item.2 }}'
+        datastore: '{{ item.1.datastore }}'
       networks:
       - name: VM Network
       hardware:
@@ -44,7 +44,7 @@
         - 192.168.0.29
         - 8.8.4.4
         domain : armandit.com
-        hostname: '{{ item.1 }}'
+        hostname: '{{ item.1.name }}'
       template: ubuntu-16.04.2-server-amd64
       wait_for_ip_address: yes
     with_subelements:
