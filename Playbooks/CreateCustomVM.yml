@@ -8,11 +8,13 @@
       - esxi_hostname: 192.168.0.11
         name: 
           - "WEB21"
-          - "WEB22"
+        datastore:
+          - "ESXi-2"
       - esxi_hostname: 192.168.0.13
         name: 
-          - "WEB23"
-          - "WEB24"
+          - "WEB22"
+        datastore:
+          - "ESXi-1"
  
   
   tasks:
@@ -33,7 +35,7 @@
       disk:
       - size_gb: 16
         type: thin
-        datastore: 'CloudStore'
+        datastore: '{{ item.2 }}'
       networks:
       - name: VM Network
       hardware:
