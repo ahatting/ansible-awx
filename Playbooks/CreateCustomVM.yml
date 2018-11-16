@@ -8,11 +8,17 @@
       - esxi_hostname: 192.168.0.11
         hosts: 
           - name: DESKTOP-01
-            datastore: ESXi-2
+            name: DESKTOP-02
+            name: DESKTOP-03
+            name: DESKTOP-04
+            name: DESKTOP-05
+            name: DESKTOP-06
       - esxi_hostname: 192.168.0.13
         hosts: 
-          - name: DESKTOP-02
-            datastore: ESXi-1
+          - name: DESKTOP-07
+            name: DESKTOP-08
+            name: DESKTOP-09
+            name: DESKTOP-10
  
   
   tasks:
