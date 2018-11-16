@@ -39,7 +39,7 @@
       hardware:
         memory_mb: 1024
         num_cpus: 1
-      template: Microsoft-Windows-10-1809-x64
+      template: Windows-10-1803-x64
       wait_for_ip_address: yes
     with_subelements:
       - '{{ guests }}'
