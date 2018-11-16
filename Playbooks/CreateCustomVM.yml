@@ -7,11 +7,11 @@
     guests:
       - esxi_hostname: 192.168.0.11
         hosts: 
-          - name: WEB21
+          - name: DESKTOP-01
             datastore: ESXi-2
       - esxi_hostname: 192.168.0.13
         hosts: 
-          - name: WEB22
+          - name: DESKTOP-02
             datastore: ESXi-1
  
   
@@ -29,7 +29,7 @@
       folder: Hosts
       name: '{{ item.1.name }}'
       state: present
-      guest_id: ubuntu64Guest
+      guest_id: windows9_64Guest
       disk:
       - size_gb: 2
         type: thin
@@ -45,7 +45,7 @@
         - 8.8.4.4
         domain : armandit.com
         hostname: '{{ item.1.name }}'
-      template: ubuntu-16.04.2-server-amd64
+      template: Microsoft-Windows-10-1809-x64
       wait_for_ip_address: yes
     with_subelements:
       - '{{ guests }}'
