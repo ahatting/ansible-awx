@@ -1,2 +1,2 @@
-# awx-windows
-AWX playbooks for Windows
+# ansible-awx
+AWX playbooks
