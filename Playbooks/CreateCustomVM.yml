@@ -7,18 +7,18 @@
     guests:
       - esxi_hostname: 192.168.0.11
         hosts: 
-          - name: DESKTOP-01
-            name: DESKTOP-02
-            name: DESKTOP-03
-            name: DESKTOP-04
-            name: DESKTOP-05
-            name: DESKTOP-06
+          - DESKTOP-01
+            DESKTOP-02
+            DESKTOP-03
+            DESKTOP-04
+            DESKTOP-05
+            DESKTOP-06
       - esxi_hostname: 192.168.0.13
         hosts: 
-          - name: DESKTOP-07
-            name: DESKTOP-08
-            name: DESKTOP-09
-            name: DESKTOP-10
+          - DESKTOP-07
+            DESKTOP-08
+            DESKTOP-09
+            DESKTOP-10
  
   
   tasks:
@@ -33,7 +33,7 @@
       esxi_hostname: '{{ item.0.esxi_hostname }}'
       datacenter: 'Datacenter'
       folder: Hosts
-      name: '{{ item.1.name }}'
+      name: '{{ item.1 }}'
       state: present
       guest_id: windows9_64guest
       template: Windows-10-1803-x64
