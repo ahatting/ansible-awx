@@ -8,7 +8,6 @@
     hostname: '{{ vcenter_hostname }}'
     username: '{{ vcenter_username }}'
     password: '{{ vcenter_password }}'
-  delegate_to: localhost
   register: vmfacts
 
 - debug:
