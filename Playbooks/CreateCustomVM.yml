@@ -30,15 +30,6 @@
       name: '{{ item.1.name }}'
       state: present
       guest_id: windows9_64guest
-      disk:
-      - size_gb: 2
-        type: thin
-        datastore: '{{ item.1.datastore }}'
-      networks:
-      - name: VM Network
-      hardware:
-        memory_mb: 1024
-        num_cpus: 1
       template: Windows-10-1803-x64
       wait_for_ip_address: yes
     with_subelements:
