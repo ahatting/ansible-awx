@@ -6,11 +6,7 @@
   vars:
     guests:
       - esxi_hostname: 192.168.0.11
-        hosts: 
-          - "{{ inventory_hostname + '-' }}{{ 60 | random }}"
       - esxi_hostname: 192.168.0.13
-        hosts: 
-          - "{{ inventory_hostname + '-' }}{{ 60 | random }}"
   
   tasks:
   # get date
@@ -24,9 +20,9 @@
       esxi_hostname: '{{ item.0.esxi_hostname }}'
       datacenter: 'Datacenter'
       folder: Hosts
-      name: '{{ item.1 }}'
+      name: "{{ inventory_hostname + '-' }}{{ 100 | random }}"
       state: present
       guest_id: windows9_64guest
       template: Windows-10-1803-x64
       wait_for_ip_address: no
-    loop: "{{ guests|subelements('hosts') }}"
+    loop: "{{ guests }}"
