@@ -10,7 +10,7 @@
           - "{{ inventory_hostname + '-' }}{{ 60 | random }}"
       - esxi_hostname: 192.168.0.13
         hosts: 
-          - "{{ ( inventory_hostname | hash | list | map('int',0,16) | sum ) % 60 }}"
+          - "{{ inventory_hostname + '-' }}{{ 60 | random }}"
   
   tasks:
   # get date
