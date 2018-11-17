@@ -26,4 +26,4 @@
       template: Windows-10-1803-x64
       wait_for_ip_address: no
    # with_sequence: start=1 end='{{ amount }}'
-    loop: "{{ range(0, amount) | list_hosts | list }}"
+    loop: "{{ range(0, amount) | product(list_hosts) | list }}"
