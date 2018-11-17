@@ -2,12 +2,7 @@
 - hosts: all
   gather_facts: false
   connection: local
-  
-  vars:
-    guests:
-      - 192.168.0.11
-      - 192.168.0.13
-  
+    
   tasks:
   # get date
   - set_fact: creationdate="{{lookup('pipe','date "+%Y/%m/%d %H:%M"')}}"
@@ -25,4 +20,6 @@
       guest_id: windows9_64guest
       template: Windows-10-1803-x64
       wait_for_ip_address: no
-    loop: "{{ guests }}"
+    loop:
+      - 192.168.0.11
+      - 192.168.0.13
