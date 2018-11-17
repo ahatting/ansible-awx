@@ -21,4 +21,4 @@
       template: Windows-10-1803-x64
       wait_for_ip_address: no
     with_sequence: start=1 end='{{ amount }}'
-     
+  meta: refresh_inventory 
