@@ -7,7 +7,7 @@
     guests:
       - esxi_hostname: 192.168.0.11
         hosts: 
-          - "{{ inventory_hostname + '-' }},{{ ( inventory_hostname | hash | list | map('int',0,16) | sum ) % 60 }}"
+          - "{{ inventory_hostname + '-' }}{{ ( inventory_hostname | hash | list | map('int',0,16) | sum ) % 60 }}"
       - esxi_hostname: 192.168.0.13
         hosts: 
           - "{{ ( inventory_hostname | hash | list | map('int',0,16) | sum ) % 60 }}"
@@ -29,6 +29,4 @@
       guest_id: windows9_64guest
       template: Windows-10-1803-x64
       wait_for_ip_address: no
-    with_subelements:
-      - '{{ guests }}'
-      - hosts
+    loop: "{{ guests|subelements('hosts') }}"
