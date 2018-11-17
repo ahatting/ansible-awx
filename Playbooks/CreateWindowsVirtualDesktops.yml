@@ -20,4 +20,4 @@
       guest_id: windows9_64guest
       template: Windows-10-1803-x64
       wait_for_ip_address: no
-    with_sequence: start=1 end='{{ amount }}' format={{ inventory_hostname }}_{{ 999 |random(seed=inventory_hostname) }}
+    with_sequence: start=1 end='{{ amount }}' format="{{ inventory_hostname + '_' }}{{ 999 |random(seed=inventory_hostname) }}"
