@@ -12,14 +12,13 @@
       username: '{{ vsphere_user }}'
       password: '{{ vsphere_password }}'
       validate_certs: no
-      esxi_hostname: '{{ item }}'
+      esxi_hostname: '{{ esx_host }}'
       datacenter: 'Datacenter'
       folder: Hosts
-      name: "{{ inventory_hostname + '-' }}{{ 100 | random }}"
+      name: '{{ item }}'
       state: present
       guest_id: windows9_64guest
       template: Windows-10-1803-x64
       wait_for_ip_address: no
-    loop:
-      - 192.168.0.11
-      - 192.168.0.13
+    with_sequence: start=0 end='{{ amount }}' format=desktop-%0x
+     
