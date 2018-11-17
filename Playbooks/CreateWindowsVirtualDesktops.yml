@@ -7,10 +7,10 @@
     guests:
       - esxi_hostname: 192.168.0.11
         hosts: 
-          - "{{ 59 |random(seed=inventory_hostname) }}
+          - "{{ 59 |random(seed=inventory_hostname) }}"
       - esxi_hostname: 192.168.0.13
         hosts: 
-          - "{{ 59 |random(seed=inventory_hostname) }}
+          - "{{ 59 |random(seed=inventory_hostname) }}"
   
   tasks:
   # get date
