@@ -12,7 +12,7 @@
       username: '{{ vsphere_user }}'
       password: '{{ vsphere_password }}'
       validate_certs: no
-      esxi_hostname: {{ item.1 }}
+      esxi_hostname: '{{ item }}'
       datacenter: 'Datacenter'
       folder: Hosts
       name: "{{ inventory_hostname + '-' }}{{ 100 | random }}"
