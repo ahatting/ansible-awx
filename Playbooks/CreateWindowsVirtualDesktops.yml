@@ -15,10 +15,10 @@
       esxi_hostname: '{{ esx_host }}'
       datacenter: 'Datacenter'
       folder: Hosts
-      name: "{{ item }}"
+      name: "{{ inventory_hostname + '-'}}{{ 100 | random }}"
       state: present
       guest_id: windows9_64guest
       template: Windows-10-1803-x64
       wait_for_ip_address: no
-    with_sequence: start=1 end='{{ amount }}' format={{ inventory_hostname + '-'}}{{ 100 | random }}
+    with_sequence: start=1 end='{{ amount }}'
      
