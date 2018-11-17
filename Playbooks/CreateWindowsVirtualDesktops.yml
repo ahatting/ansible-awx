@@ -4,7 +4,7 @@
   connection: local
   
   vars:
-    list_hosts
+    list_hosts:
      - 192.168.0.11
      - 192.168.0.13
   
