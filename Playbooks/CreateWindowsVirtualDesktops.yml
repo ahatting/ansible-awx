@@ -23,7 +23,7 @@
       name: "{{ inventory_hostname + '_' }}{{ 99999999 | random | to_uuid }}"
       state: present
       guest_id: windows9_64guest
-      template: Windows-10-1803-x64
+      template: '{{ OS }}'
       wait_for_ip_address: no
    # with_sequence: start=1 end='{{ amount }}'
     loop: "{{ range(0, amount) | product(list_hosts) | list }}"
