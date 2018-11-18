@@ -3,11 +3,7 @@
   gather_facts: false
   connection: local
   
-  vars:
-    list_hosts:
-     - 192.168.0.11
-     - 192.168.0.13
-  
+ 
   tasks:
   # get date
   - set_fact: creationdate="{{lookup('pipe','date "+%Y/%m/%d %H:%M"')}}"
@@ -26,4 +22,4 @@
       template: '{{ OS }}'
       wait_for_ip_address: no
    # with_sequence: start=1 end='{{ amount }}'
-    loop: "{{ range(0, amount) | product(list_hosts) | list }}"
+    loop: "{{ range(0, amount) | product(esx_hosts) | list }}"
