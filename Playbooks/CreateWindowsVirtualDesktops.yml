@@ -16,7 +16,7 @@
       esxi_hostname: '{{ item.1 }}'
       datacenter: 'Datacenter'
       folder: Hosts
-      name: "{{ inventory_hostname + '_' }}{{ 99999999 | random | to_uuid }}"
+      name: "{{ hostname + '_' }}{{ 99999999 | random | to_uuid }}"
       state: present
       guest_id: windows9_64guest
       template: '{{ OS }}'
