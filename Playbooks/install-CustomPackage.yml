@@ -1,0 +1,4 @@
+ name: Install multiple packages
+  win_chocolatey:
+    name: '{{ item }}'
+    state: present
