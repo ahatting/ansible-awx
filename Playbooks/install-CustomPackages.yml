@@ -1,0 +1,10 @@
+---
+- name:  Install 7zip
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: Install multiple packages
+        win_chocolatey:
+        name: '{{ item }}'
+        state: present
