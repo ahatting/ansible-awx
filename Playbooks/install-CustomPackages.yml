@@ -1,10 +1,10 @@
 ---
-- name:  Install 7zip
+- name:  Install custom package
   hosts: all
   gather_facts: false
 
   tasks:
-    - name: Install multiple packages
+    - name: Install custom package
       win_chocolatey:
         name: '{{ item }}'
         state: present
