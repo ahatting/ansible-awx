@@ -5,6 +5,6 @@
 
   tasks:
     - name: Install multiple packages
-        win_chocolatey:
+      win_chocolatey:
         name: '{{ item }}'
         state: present
