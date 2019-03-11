@@ -8,7 +8,7 @@
       win_command: C:\Temp\setup.exe /packager C:\Temp\Office2016ProjectPro-x86.xml C:\Temp\ProjectPro
       register: setup_out
       
-      - name: Build Visio Professional 2016 x86 APP-V package
+    - name: Build Visio Professional 2016 x86 APP-V package
       win_command: C:\Temp\setup.exe /packager C:\Temp\Office2016VisioPro-x86.xml C:\Temp\VisioPro
       register: setup_out
         
