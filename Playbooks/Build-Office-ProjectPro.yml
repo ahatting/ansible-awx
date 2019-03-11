@@ -1,5 +1,5 @@
 ---
-- name:  Install Notepad++
+- name:  Build APP-V Office Project Professional 2016 x86
   hosts: all
   gather_facts: false
   tasks:
