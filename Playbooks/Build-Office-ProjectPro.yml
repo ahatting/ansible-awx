@@ -1,6 +1,6 @@
 ---
 - name:  Build APP-V Office Project Professional 2016 x86
-  hosts: all
+  hosts: '{{ target }}'
   gather_facts: false
   tasks:
   
