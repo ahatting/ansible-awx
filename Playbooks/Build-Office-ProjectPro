@@ -1,0 +1,10 @@
+---
+- name:  Install Notepad++
+  hosts: all
+  gather_facts: false
+  tasks:
+  
+    - name: Run an executable and send data to the stdin for the executable
+      win_command: C:\Temp\setup.exe /packager C:\Temp\Office2016ProjectPro-x86.xml C:\Temp\ProjectPro
+      register: setup_out
+        
