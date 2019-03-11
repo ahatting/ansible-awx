@@ -1,10 +1,14 @@
 ---
-- name:  Build APP-V Office Project Professional 2016 x86
+- name:  Run command on Windows Remote Host
   hosts: '{{ target }}'
   gather_facts: false
   tasks:
   
-    - name: Run an executable and send data to the stdin for the executable
+    - name: Build Project Professional 2016 x86 APP-V package
       win_command: C:\Temp\setup.exe /packager C:\Temp\Office2016ProjectPro-x86.xml C:\Temp\ProjectPro
+      register: setup_out
+      
+      - name: Build Visio Professional 2016 x86 APP-V package
+      win_command: C:\Temp\setup.exe /packager C:\Temp\Office2016VisioPro-x86.xml C:\Temp\VisioPro
       register: setup_out
         
