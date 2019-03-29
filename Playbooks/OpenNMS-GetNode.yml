@@ -1,3 +1,4 @@
+---
 - name: Delete a node from OpenNMS
   uri:
     url: {{ URL }}
