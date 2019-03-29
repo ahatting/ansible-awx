@@ -1,6 +1,6 @@
 ---
 - name: Get all nodes from OpenNMS
-  hosts: tower.armandit.com
+  hosts: all
   gather_facts: false
   connection: local
   
