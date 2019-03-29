@@ -1,11 +1,12 @@
 ---
-- name: Delete a node from OpenNMS
+- name: Get all nodes from OpenNMS
   
   tasks:
-    uri:
-      url: {{ URL }}
-      method: POST
-      user: {{ USERNAME }}
-      password: {{ PASSWORD }}
-      force_basic_auth: yes
-      return_content: true
+    - name: request all nodes
+      uri:
+        url: https://{{ HOSTNAME }}/opennms/rest/nodes/
+        method: POST
+        user: {{ USERNAME }}
+        password: {{ PASSWORD }}
+        force_basic_auth: yes
+        return_content: true
