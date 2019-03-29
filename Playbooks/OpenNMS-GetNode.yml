@@ -1,6 +1,6 @@
 ---
 - name: Get all nodes from OpenNMS
-  hosts: all
+  hosts: tower.armandit.com
   gather_facts: false
   connection: local
   
@@ -9,7 +9,7 @@
       uri:
         url: https://{{ HOSTNAME }}/opennms/rest/nodes/
         method: POST
-        user: {{ USERNAME }}
-        password: {{ PASSWORD }}
+        user: "{{ USERNAME }}"
+        password: "{{ PASSWORD }}"
         force_basic_auth: yes
         return_content: true
