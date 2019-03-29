@@ -1,8 +1,10 @@
 ---
 - name: Delete a node from OpenNMS
-  uri:
-    url: {{ URL }}
-    method: POST
-    user: {{ USERNAME }}
-    password: {{ PASSWORD }}
-    force_basic_auth: yes
+  
+  tasks:
+    uri:
+      url: {{ URL }}
+      method: POST
+      user: {{ USERNAME }}
+      password: {{ PASSWORD }}
+      force_basic_auth: yes
