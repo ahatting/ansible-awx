@@ -7,7 +7,7 @@
   tasks:
     - name: request all nodes
       uri:
-        url: https://"{{ hostname }}"/opennms/rest/nodes/
+        url: https://{{ hostname }}/opennms/rest/nodes/
         method: POST
         user: "{{ u_username }}"
         password: "{{ u_password }}"
