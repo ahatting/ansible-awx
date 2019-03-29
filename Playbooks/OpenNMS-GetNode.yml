@@ -8,3 +8,4 @@
       user: {{ USERNAME }}
       password: {{ PASSWORD }}
       force_basic_auth: yes
+      return_content: true
