@@ -1,6 +1,6 @@
 ---
 - name: Get all nodes from OpenNMS
-  hosts: "{{ HOSTS }}"
+  hosts: all
   gather_facts: false
   connection: local
   
