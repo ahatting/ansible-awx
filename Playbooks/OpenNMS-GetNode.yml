@@ -15,10 +15,10 @@
         password: "{{ u_password }}"
         force_basic_auth: yes
         return_content: yes
-      register: resp_data
+      register: result
       
-    - debug: var=resp_data
+    - debug: var=result
     
     - name: Print node name
       debug:
-        msg: "{{ resp_data.content.node.label }}"  
+        msg: "{{ result.json.node.label }}"  
