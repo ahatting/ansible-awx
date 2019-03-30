@@ -18,9 +18,7 @@
       register: resp_data
       
     - debug: var=resp_data
-      
-    - set_fact: resp_data= json_resp
     
     - name: Print node name
       debug:
-        msg: "{{ json_resp.node.foreignSource }}"  
+        msg: "{{ resp_data.content.node.label }}"  
