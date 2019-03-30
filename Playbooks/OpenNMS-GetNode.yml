@@ -1,6 +1,6 @@
 ---
 - name: Get all nodes from OpenNMS
-  hosts: all
+  hosts: localhost
   gather_facts: false
   connection: local
   
@@ -15,3 +15,8 @@
         password: "{{ u_password }}"
         force_basic_auth: yes
         return_content: yes
+        register:jsondata
+        
+    - name: Print node name
+      debug:
+        msg: "{{ jsondata.node.foreignSource }}"  
