@@ -12,4 +12,4 @@
         user: "{{ u_username }}"
         password: "{{ u_password }}"
         force_basic_auth: yes
-        return_content: true
+        return_content: yes
