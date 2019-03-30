@@ -8,7 +8,7 @@
     - name: request all nodes
       uri:
         url: https://{{ hostname }}/opennms/rest/nodes/
-        method: POST
+        method: GET
         user: "{{ u_username }}"
         password: "{{ u_password }}"
         force_basic_auth: yes
