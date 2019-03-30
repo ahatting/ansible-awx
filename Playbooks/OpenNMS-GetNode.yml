@@ -13,12 +13,10 @@
           Accept: application/json
         user: "{{ u_username }}"
         password: "{{ u_password }}"
+        body_format: json
         force_basic_auth: yes
         return_content: yes
       register: result
       
     - debug: var=result
-    
-    - name: Print node name
-      debug:
-        msg: "{{ result.json.node.label }}"  
+        msg: "{{ result.json.node.label }}" 
