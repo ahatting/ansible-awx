@@ -13,4 +13,4 @@
         password: "{{ u_password }}"
         force_basic_auth: yes
         return_content: yes
-        debug: msg="{{ lookup('url', https://{{ hostname }}/opennms/rest/nodes/, split_lines=True) }}"
+        debug: msg="{{ lookup('url', 'https://{{ hostname }}/opennms/rest/nodes/', split_lines=True) }}"
