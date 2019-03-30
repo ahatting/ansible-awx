@@ -17,7 +17,9 @@
         return_content: yes
       register: resp_data
       
-    - set_fact: resp_data= "{{ json_resp }}"
+    - debug: var=resp_data
+      
+    - set_fact: resp_data= json_resp
     
     - name: Print node name
       debug:
