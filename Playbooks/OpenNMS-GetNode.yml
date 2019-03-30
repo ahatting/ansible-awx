@@ -5,7 +5,7 @@
   connection: local
   
   tasks:
-    - name: request all nodes
+    - name: Request all nodes
       uri:
         url: https://{{ hostname }}/opennms/rest/nodes/
         method: GET
@@ -18,5 +18,6 @@
         return_content: yes
       register: result
       
-    - debug: var=result
-        msg: "{{ result.json.node.label }}" 
+    - name: Print node label
+      debug: var=result
+        msg: "{{ result.json.node.label }}"
