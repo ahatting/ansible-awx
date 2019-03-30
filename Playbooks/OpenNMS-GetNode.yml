@@ -15,4 +15,3 @@
         password: "{{ u_password }}"
         force_basic_auth: yes
         return_content: yes
-      register: restdata
