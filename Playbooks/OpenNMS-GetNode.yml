@@ -15,8 +15,10 @@
         password: "{{ u_password }}"
         force_basic_auth: yes
         return_content: yes
-      register: jsondata
-        
+      register: resp_data
+      
+    - set_fact: resp_data=json_resp
+    
     - name: Print node name
       debug:
-        msg: "{{ jsondata.node.foreignSource }}"  
+        msg: "{{ json_resp.node.foreignSource }}"  
