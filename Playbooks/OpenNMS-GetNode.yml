@@ -19,7 +19,7 @@
       register: result
       
     - name: Iterate JSON
-      with_items: "{{ result.json.node.label }}"
+        with_items: "{{ result.json.node[1].label }}"
       register: rb_result
     
     - name:  Print Fact
