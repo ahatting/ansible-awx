@@ -20,7 +20,7 @@
       
     - name: Iterate JSON
       set_fact:
-        app_item: "{{ result.json.node[1].label }}"
+        app_item: "{{ result.json.node[0].foreignSource }}"
       with_items: "{{ result.json.node }}"
       register: app_result
       
