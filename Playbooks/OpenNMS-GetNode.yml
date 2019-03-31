@@ -18,5 +18,15 @@
         return_content: yes
       register: result
       
-    - name: Print node label
-      debug: var=result.json.node[1].label
+    - name: Iterate JSON
+      set_fact:
+        app_item: "{{ result.json.node[1].label }}"
+      with_items: "{{ result.json.node }}"
+      register: app_result
+      
+    - name: Create Fact List
+      set_fact:
+         apps: "{{ app_result.results | map(attribute='ansible_facts.app_item') | list }}"
+    
+    - name:  Print Fact
+     debug: var=apps
