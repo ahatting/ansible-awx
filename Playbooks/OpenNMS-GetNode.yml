@@ -29,4 +29,4 @@
          apps: "{{ app_result.results | map(attribute='ansible_facts.app_item') | list }}"
     
     - name:  Print Fact
-     debug: var=apps
+      debug: var=apps
