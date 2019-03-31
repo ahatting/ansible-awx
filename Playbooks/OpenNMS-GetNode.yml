@@ -19,5 +19,4 @@
       register: result
       
     - name: Print node label
-      debug: var=result
-        msg: "{{ result.json.node.label }}"
+      debug: var=result.json.node.label
