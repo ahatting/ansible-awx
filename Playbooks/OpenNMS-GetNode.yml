@@ -19,16 +19,8 @@
       register: result
       
     - name: Iterate JSON
-      set_fact:
-        {% for item in results.json.node %}
-        app_item: "{{ item.label }}"
-        {% endfor %}
-      with_items: "{{ result.json.node }}"
-      register: app_result
-      
-    - name: Create Fact List
-      set_fact:
-         apps: "{{ app_result.results | map(attribute='ansible_facts.app_item') | list }}"
+      with_items: "{{ result.json.node.label }}"
+      register: rb_result
     
     - name:  Print Fact
-      debug: var=apps
+      debug: var=rb_result
