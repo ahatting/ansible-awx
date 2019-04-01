@@ -20,9 +20,8 @@
       
     - name: Print node label
       #var=result.json.node | json_query([?label==" {{ node_to_remove }} "])
-      debug:
-        msg: "{{ item }}"
-      with_items: 
-        - "{{ result | json_query('json.node[*].label') }}"  
-      when: "{{ result | json_query('json.node[*].label') }}" == "{{ node_to_remove }}"
+      debug: 
+        msg: "Found {{ item }}"
+      when: item.label == "{{ node_to_remove }}" 
+      with_items: result.json.node  
 
