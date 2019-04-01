@@ -18,11 +18,7 @@
         return_content: yes
       register: result
       
-    - name: Store facts
-      set_fact:
-        task_label: "{{ result.json.node[1].label }}"
-      
-   # - debug: msg="Node label"
-   #   with_items: "{{ result.json.node[1].label }}"
-      
-    - debug: msg="{{ task_label }}"
+    - name: Print node label
+       debug:
+        msg: "{{ item }}"
+      loop: "{{ result | json_query('json.node[*].label') }}"
