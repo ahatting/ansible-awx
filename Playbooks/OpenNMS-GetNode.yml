@@ -18,8 +18,11 @@
         return_content: yes
       register: result
       
+    - name: Store facts
+      set_fact:
+        task_label: "{{ result.json.node[1].label }}"
+      
    # - debug: msg="Node label"
    #   with_items: "{{ result.json.node[1].label }}"
       
-    - debug: msg="Result"
-    with_items: "{{ result.results | map('from_json') | map(attribute='node') | sum(start=[]) | map(attribute='label') | list }}"
+    - debug: msg="{{ task_label }}"
