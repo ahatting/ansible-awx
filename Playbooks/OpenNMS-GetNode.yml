@@ -19,5 +19,9 @@
       register: result
       
     - name: Print node label
-      debug: var=result.json.node | json_query([?label==" {{ node_to_remove }} "])
+      var=result.json.node | json_query([?label==" {{ node_to_remove }} "])
+      debug:
+        msg: "{{ item }}"
+        when: 
+          loop: "{{ result | json_query('json.node[*].label) == '{{ node_to_remove }}' }}"
 
