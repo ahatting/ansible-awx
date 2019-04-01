@@ -18,10 +18,9 @@
         return_content: yes
       register: result
       
-    - name: Print node label
+    #- name: Print node label
       #var=result.json.node | json_query([?label==" {{ node_to_remove }} "])
-      debug: 
-        msg: "Found {{ item }}"
-      when: item.name == node_to_remove 
-      with_items: result.json.node  
+     - debug: var=item.label 
+       with_items: "{{ jsonquery }}"
+       jsonquery: "{{ result.json.node | json_query('[?label=="{{ node_to_remove }}"]') }}"
 
