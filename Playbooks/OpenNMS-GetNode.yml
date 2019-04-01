@@ -21,4 +21,4 @@
     - name: Print node label
       debug:
         msg: "{{ item }}"
-      loop: "{{ result | json_query('json.node[*].label') }}"
+      loop: "{{ item }}"
