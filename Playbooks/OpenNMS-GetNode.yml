@@ -21,5 +21,5 @@
    # - debug: msg="Node label"
    #   with_items: "{{ result.json.node[1].label }}"
       
-    - debug: msg="{{ item.host_name }} {{ item.component_name }}"
+    - debug: msg="Result"
     with_items: "{{ result.results | map(attribute='node') | sum(start=[]) | map(attribute='Label') | list }}"
