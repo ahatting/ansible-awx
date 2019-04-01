@@ -17,6 +17,8 @@
         force_basic_auth: yes
         return_content: yes
       register: result
+      
+    - name: Iterate json
       with_items: 
         - "{{ result.json.node[1].label }}"
       register: rb_result
