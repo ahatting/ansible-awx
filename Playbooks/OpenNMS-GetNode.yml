@@ -21,10 +21,11 @@
     - name: Jinja list debug, printing out the list as comma seperated.
       set_fact:
         #msg: "{% for each in result.json.node %}{{ each }}{% if not loop.last %},{% endif %}{% endfor %}"
-        label_value: "{{ result.json.node | map(attribute='label') | list }}"
+        label_value: "{{ result.json.node | map(attribute='label') }}"
+        when: node_to_remove is in label_value
     
     - debug:
         msg: "{{ label_value }}"
-        when: node_to_remove is in label_value
+        
       
 
