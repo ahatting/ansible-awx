@@ -23,6 +23,6 @@
       debug:
         msg: "{{ item }}"
       with_items: 
-        - "{{ result | json_query('json.node[*].label) }}"  
-      when: "{{ result | json_query('json.node[*].label) == {{ node_to_remove }} }}"
+        - "{{ result | json_query('json.node[*].label') }}"  
+      when: "{{ result | json_query('json.node[*].label') == {{ node_to_remove }} }}"
 
