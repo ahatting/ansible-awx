@@ -17,18 +17,14 @@
         force_basic_auth: yes
         return_content: yes
       register: result
-      
-    #- name: Print node label
-      #var=result.json.node | json_query([?label==" {{ node_to_remove }} "])
-   # - debug: msg="Found it!" 
-    #  with_items: "{{ result | json_query('json.node[*].label') }}"
-     # when: node_to_remove is item
+        
     - name: Jinja list debug, printing out the list as comma seperated.
       set_fact:
         #msg: "{% for each in result.json.node %}{{ each }}{% if not loop.last %},{% endif %}{% endfor %}"
-        foo_value: "{{ result.json.node | map(attribute='label') | list }}"
+        label_value: "{{ result.json.node | map(attribute='label') | list }}"
     
     - debug:
-        msg: "{{ foo_value }}"
+        msg: "{{ label_value }}"
+        when: node_to_remove is in label_value
       
 
