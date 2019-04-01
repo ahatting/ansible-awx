@@ -19,6 +19,6 @@
       register: result
       
     - name: Print node label
-       debug:
+      debug:
         msg: "{{ item }}"
       loop: "{{ result | json_query('json.node[*].label') }}"
