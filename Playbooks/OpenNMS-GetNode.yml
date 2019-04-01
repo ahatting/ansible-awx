@@ -22,5 +22,5 @@
       #var=result.json.node | json_query([?label==" {{ node_to_remove }} "])
     - debug: var=item.label 
       with_items: "{{ jsonquery }}"
-      when: "{{ result.json.node | json_query('[?label==`{{ node_to_remove }}`]') }}"
+      when: "{{ result.json.node | json_query('[?label==node_to_remove]') }}"
 
