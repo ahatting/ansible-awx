@@ -27,7 +27,8 @@
       set_fact:
         #msg: "{% for each in result.json.node %}{{ each }}{% if not loop.last %},{% endif %}{% endfor %}"
         foo_value: "{{ result.json.node | map(attribute='label') | list }}"
-      debug:
+    
+    - debug:
         msg: "{{ foo_value }}"
       
 
