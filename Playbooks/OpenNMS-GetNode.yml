@@ -23,11 +23,12 @@
         #msg: "{% for each in result.json.node %}{{ each }}{% if not loop.last %},{% endif %}{% endfor %}"
         label: "{{ result.json.node | map(attribute='label') | list }}"
         #label_value: "{% for each in label %}{{ each }}{% if node_to_remove==label %}{% endif %}{% endfor %}"
+      with_items: "{{ label }}"
+      when: node_to_remove == item
     
     - debug:
         msg: "Node found: {{ item }}"
-      with_items: "{{ label }}"
-      when: node_to_remove == item
+
         
       
 
