@@ -27,6 +27,7 @@
     - debug:
         msg: "{{ label }}"
       when: node_to_remove == label
+      with_items: "{{ label }}"
         
       
 
