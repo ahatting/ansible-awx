@@ -25,9 +25,9 @@
         #label_value: "{% for each in label %}{{ each }}{% if node_to_remove==label %}{% endif %}{% endfor %}"
     
     - debug:
-        msg: "{{ label }}"
-      when: node_to_remove == label
+        msg: "{{ item }}"
       with_items: "{{ label }}"
+      when: node_to_remove == item
         
       
 
