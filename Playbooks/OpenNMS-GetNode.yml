@@ -20,7 +20,8 @@
       
     - name: Get nodes from openNMS and store attributes label and ID in list
       set_fact:
-        nodes: "{{ result.json.node }}"
+        nodes: "{{ nodes | combine({item.key: item.value}) }}"
+      with_items: "{{ result.json.node }}"
     
     - debug:
         msg: "Node found: {{ item.label }} with id: {{ item.id }}"
