@@ -18,18 +18,15 @@
         return_content: yes
       register: result
       
-    - name: Create new variables from json output
-      set_fact: {"{{ item.key }}":"{{ item.val }}"}
-      with_dict: "{{result.json.node}}"
-        
-    - name: Get node from openNMS and store in variable
+    - name: Get nodes from openNMS and store attributes label and ID in list
       set_fact:
-        item_label: "{{ result.json.node | map(attribute='label') | list }}"
+        nodes: "{{ nodes|default([]) | combine( {'label': item.label, 'ID':item.ID} ) }}"
+      with_items: "{{ result.json.node }}"
     
     - debug:
-        msg: "Node found: {{ label }} with ID {{ ID }}"
-      with_items: "{{ item_label }}"
-      when: node_to_remove == item
+        msg: "Node found: {{ item }}"
+      with_items: "{{ nodes }}"
+      when: node_to_remove == item.label
 
         
       
