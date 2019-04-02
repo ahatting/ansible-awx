@@ -24,7 +24,7 @@
       with_items: "{{ result.json.node }}"
     
     - debug:
-        msg: "Node found: {{ item }}"
+        msg: "Node found: {{ nodes }}"
       with_items: "{{ nodes }}"
       when: node_to_remove == item
 
