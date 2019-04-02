@@ -18,14 +18,18 @@
         return_content: yes
       register: result
       
-    - name: Get nodes from openNMS and store attributes label and ID in list
+    - name: Validate presence node in openNMS
       set_fact:
-        nodes: "{{ result.json.node | from_json }}"
+        #msg: "{% for each in result.json.node %}{{ each }}{% if not loop.last %},{% endif %}{% endfor %}"
+        label: "{{ result.json.node | map(attribute='label') | list }}"
+        #label_value: "{% for each in label %}{{ each }}{% if node_to_remove==label %}{% endif %}{% endfor %}"
+      
+      
     
     - debug:
-        msg: "Node found: {{ item.label }} with id: {{ item.id }}"
-      with_items: "{{ nodes }}"
-      when: node_to_remove == item.label
+        msg: "Node found: {{ item }}"
+      with_items: "{{ label }}"
+      when: node_to_remove == item
 
         
       
