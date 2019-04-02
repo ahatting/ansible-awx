@@ -20,10 +20,10 @@
       
     - name: Get nodes from openNMS and store attributes label and ID in list
       set_fact:
-        nodes: "{{ result.json.node }}"
+        nodes: "{{ result.json.node | from_json }}"
     
     - debug:
-        msg: "Node found: {{ item.label }}"
+        msg: "Node found: {{ item.label }} with id: {{ item.id }}"
       with_items: "{{ nodes }}"
       when: node_to_remove == item.label
 
