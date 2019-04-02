@@ -1,5 +1,5 @@
 ---
-- name: Get all nodes from OpenNMS
+- name: Remove node from OpenNMS
   hosts: localhost
   gather_facts: false
   connection: local
@@ -18,14 +18,14 @@
         return_content: yes
       register: result
         
-    - name: Validate presence node to remove
+    - name: Validate presence node in openNMS
       set_fact:
         #msg: "{% for each in result.json.node %}{{ each }}{% if not loop.last %},{% endif %}{% endfor %}"
         label: "{{ result.json.node | map(attribute='label') | list }}"
         #label_value: "{% for each in label %}{{ each }}{% if node_to_remove==label %}{% endif %}{% endfor %}"
     
     - debug:
-        msg: "{{ item }}"
+        msg: "Node found: {{ item }}"
       with_items: "{{ label }}"
       when: node_to_remove == item
         
