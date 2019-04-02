@@ -24,9 +24,9 @@
       #with_items: "{{ result.json.node | list }}"
     
     - debug:
-        msg: "Node found {{ item.json.node.label }} with id {{ item.json.node.id }}"
+        msg: "Node found {{ item.label }} with id {{ item.id }}"
       with_dict: "{{ result }}"
-      when: node_to_remove == item.json.node.label
+      when: node_to_remove == item.label
 
         
       
