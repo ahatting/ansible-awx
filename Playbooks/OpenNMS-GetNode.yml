@@ -24,9 +24,9 @@
         label: "{{ result.json.node | map(attribute='label') }}"
         #label_value: "{% for each in label %}{{ each }}{% if node_to_remove==label %}{% endif %}{% endfor %}"
     
-    - name: print label name when match
+    - debug:
         msg: "{{ label }}"
-        when: node_to_remove == label
+      when: node_to_remove == label
         
       
 
