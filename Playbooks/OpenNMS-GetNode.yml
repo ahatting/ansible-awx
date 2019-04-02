@@ -21,8 +21,6 @@
     - name: Get node from openNMS and store in variable
       set_fact:
         label: "{{ result.json.node | map(attribute='label') | list }}"
-      with_items: "{{ label }}"
-      when: node_to_remove == item
     
     - debug:
         msg: "Node found: {{ item }}"
