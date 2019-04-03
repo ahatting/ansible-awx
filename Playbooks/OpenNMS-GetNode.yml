@@ -23,9 +23,11 @@
      #   nodes: "{{ result | from_json }}"
       #with_items: "{{ result.json.node | list }}"
     
-    - debug: 
-        var: "{{ item.label }}" 
-      with_list: "{{ result.json.node }}"
+    - debug:
+        var: result.json.nodes[{{ item }}].label
+        with_sequence: start=0 end={{result.json.node|length -1}}
+        #var: "{{ item.label }}" 
+      #with_list: "{{ result.json.node }}"
     
    # - debug:
     #    var: result
