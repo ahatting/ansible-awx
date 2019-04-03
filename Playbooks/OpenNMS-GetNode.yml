@@ -24,7 +24,7 @@
       #with_items: "{{ result.json.node | list }}"
     
     - debug: 
-        var: item
+        var: item.label
       with_dict: "{{ result.json.node }}"
     
    # - debug:
