@@ -25,7 +25,7 @@
     
     - debug: 
         var: item.label 
-      with_list: "{{ result.json.node }}"
+      with_list: "{{ result.json.node[0] }}"
     
    # - debug:
     #    var: result
