@@ -30,7 +30,7 @@
     
     - debug:
         msg: "Node found {{ item.label }} with id {{ item.id }}"
-      with_item: "{{ nodes }}"
+      with_list: "{{ nodes }}"
       when: node_to_remove == item.label
 
         
