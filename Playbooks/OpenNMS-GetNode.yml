@@ -30,8 +30,8 @@
     
     - debug:
         msg: "Node {{ item.label }} found with node ID {{ item.id }}"
-      with_items: result.json.node
-      when: node_to_remove == item.label
+      with_items: "{{ result.json.node }}"
+      when: node_to_remove == "{{ item.label }}"
 
         
       
