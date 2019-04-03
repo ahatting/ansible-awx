@@ -23,7 +23,7 @@
      #   nodes: "{{ result | from_json }}"
       #with_items: "{{ result.json.node | list }}"
     
-    - debug: var={{ item }}
+    - debug: msg:"{{ item.label }}"
       with_dict: "{{ result.json.node }}"
     
    # - debug:
