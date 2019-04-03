@@ -24,9 +24,11 @@
       #with_items: "{{ result.json.node | list }}"
     
     - debug:
-        msg: "Node found {{ item['label'] }} with id {{ item['id'] }}"
-      with_dict: "{{ lookup('dict', result) }}"
-      when: node_to_remove == item['label']
+        var: result
+        verbosity: 2
+        #msg: "Node found {{ item['label'] }} with id {{ item['id'] }}"
+      #with_dict: "{{ lookup('dict', result) }}"
+      #when: node_to_remove == item['label']
 
         
       
