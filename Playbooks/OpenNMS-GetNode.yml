@@ -18,19 +18,19 @@
         return_content: yes
       register: result
       
-    - name: Get nodes from openNMS and store attributes label and ID in list
-      set_fact:
-        nodes: "{{ result.json.node }}"
+    #- name: Get nodes from openNMS and store attributes label and ID in list
+      #set_fact:
+        #nodes: "{{ result.json }}"
     
     #- debug:
      #   var: "{{ result.json.node[item].label }}"
      # with_sequence: start=0 end={{result.json.node|length -1}}
         #var: "{{ item.label }}" 
-      #with_list: "{{ result.json.node }}"
+      #with_list: "{{ result.json }}"
     
     - debug:
         msg: "Node {{ item.label }} found with node ID {{ item.id }}"
-      with_items: nodes
+      with_items: result.json.node
       when: node_to_remove == item.label
 
         
