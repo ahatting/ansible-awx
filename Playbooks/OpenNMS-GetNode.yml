@@ -29,7 +29,7 @@
       #with_list: "{{ result.json.node }}"
     
     - debug:
-        msg: "Node found 'item.label' with id 'item.id'"
+        var: item.id
       with_list: "{{ nodes }}"
       when: node_to_remove == item.label
 
