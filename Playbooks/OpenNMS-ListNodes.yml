@@ -1,0 +1,28 @@
+---
+- name: Request all nodes from OpenNMS
+  hosts: localhost
+  gather_facts: false
+  connection: local
+  
+  tasks:
+    - name: Request the nodes from the service
+      uri:
+        url: https://{{ hostname }}/opennms/rest/nodes/
+        method: GET
+        headers:
+          Accept: application/json
+        user: "{{ u_username }}"
+        password: "{{ u_password }}"
+        body_format: json
+        force_basic_auth: yes
+        return_content: yes
+      register: result
+      
+    - name: Save the node ID in a variable
+      debug:
+        msg: "{{ result }}"
+      #set_fact:
+        #node_id: "{{ item.id }}"
+      #with_items: "{{ result.json.node }}"
+      #when: node_to_remove == item.label
+      
