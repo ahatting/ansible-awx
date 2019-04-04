@@ -19,7 +19,7 @@
       register: result
       
     - name: Save the node ID in a variable
-      vars:
+      set_facts:
         node_id: "{{ item.id }}"
       with_items: "{{ result.json.node }}"
       when: node_to_remove == item.label
