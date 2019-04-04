@@ -24,7 +24,18 @@
       with_items: "{{ result.json.node }}"
       when: node_to_remove == item.label
 
-    - debug:
-        msg: "{{ node_id }}"
+    - name: Remove the node from service
+      uri:
+        url: https://{{ hostname }}/opennms/rest/nodes/{{node_id}}
+        method: DELETE
+        headers:
+          Accept: application/json
+        user: "{{ u_username }}"
+        password: "{{ u_password }}"
+        body_format: json
+        force_basic_auth: yes
+        return_content: yes
+        status_code: 202
+      register: result
       
 
