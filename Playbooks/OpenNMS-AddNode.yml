@@ -13,10 +13,15 @@
           Accept: application/json
         user: "{{ u_username }}"
         password: "{{ u_password }}"
-        body_format: json
+        body_format: xml
         force_basic_auth: yes
         return_content: yes
         body: |
-          <?xml version="1.0" encoding="UTF-8" standalone="yes"?><node node-label="{{ node_label }}" foreign-id="{{ node_label }}" building="Armand IT Headquarters"><interface snmp-primary="N" status="1" ip-addr="{{ node_ipv4_address }}" descr=""></interface></node>
+          <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+              <node node-label="{{ node_label }}" foreign-id="{{ node_label }}" building="Armand IT Headquarters">
+                <interface snmp-primary="N" status="1" ip-addr="{{ node_ipv4_address }}" descr="">
+                </interface>
+              </node>
+         
       
       
