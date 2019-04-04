@@ -13,7 +13,6 @@
           Accept: text/xml
         user: "{{ u_username }}"
         password: "{{ u_password }}"
-        body_format: raw
         force_basic_auth: yes
         return_content: yes
         body: |
