@@ -1,33 +1,14 @@
 ---
-- name: Add node from OpenNMS
+- name: Add node to OpenNMS
   hosts: localhost
   gather_facts: false
   connection: local
   
   tasks:
-    - name: Request all nodes from service
-      uri:
-        url: https://{{ hostname }}/opennms/rest/nodes/
-        method: GET
-        headers:
-          Accept: application/json
-        user: "{{ u_username }}"
-        password: "{{ u_password }}"
-        body_format: json
-        force_basic_auth: yes
-        return_content: yes
-      register: result
-      
-    - name: Save the node ID in a variable
-      set_fact:
-        node_id: "{{ item.id }}"
-      with_items: "{{ result.json.node }}"
-      when: node_to_remove == item.label
-
     - name: Add the node to the service
       uri:
-        url: https://{{ hostname }}/opennms/rest/nodes/{{node_id}}
-        method: GET
+        url: https://{{ hostname }}/opennms/rest/nodes/
+        method: POST
         headers:
           Accept: application/json
         user: "{{ u_username }}"
@@ -35,6 +16,6 @@
         body_format: json
         force_basic_auth: yes
         return_content: yes
-        status_code: 200
-      register: result
+        body:
+      
       
