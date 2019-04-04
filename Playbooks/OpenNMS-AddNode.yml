@@ -17,9 +17,8 @@
         return_content: yes
         body: |
           <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-              <node node-label="{{ node_label }}" foreign-id="{{ node_label }}" building="Armand IT Headquarters">
-                <interface snmp-primary="N" status="1" ip-addr="{{ node_ipv4_address }}" descr="">
-                </interface>
+              <node type="A" label="uzbekistan">
+              <labelSource>A</labelSource>
               </node>
          
       
