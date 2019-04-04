@@ -5,7 +5,7 @@
   connection: local
   
   tasks:
-    - name: Request all nodes
+    - name: Request all nodes from service
       uri:
         url: https://{{ hostname }}/opennms/rest/nodes/
         method: GET
@@ -18,11 +18,12 @@
         return_content: yes
       register: result
       
-    - debug:
-        msg: "Node {{ item.label }} found with node ID {{ item.id }}"
+    - name: Save the node ID in a variable
+        node_id: "{{ item.id }}"
       with_items: "{{ result.json.node }}"
       when: node_to_remove == item.label
 
-        
+    - debug:
+        msg: "{{ node_id }}"
       
 
