@@ -10,10 +10,10 @@
         url: https://{{ hostname }}/opennms/rest/nodes/
         method: GET
         headers:
-          Accept: application/json
+          Accept: application/xml
         user: "{{ u_username }}"
         password: "{{ u_password }}"
-        body_format: json
+        #body_format: json
         force_basic_auth: yes
         return_content: yes
       register: result
