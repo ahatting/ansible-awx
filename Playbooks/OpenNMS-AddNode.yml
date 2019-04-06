@@ -33,6 +33,6 @@
         password: "{{ u_password }}"
         force_basic_auth: yes
         return_content: yes
-        status_code: 200
+        status_code: 202
       
       
