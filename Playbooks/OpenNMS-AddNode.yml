@@ -23,4 +23,16 @@
               </interface>
             </node>
       
+    - name: Activate the node
+      uri:
+        url: https://{{ hostname }}/opennms/rest/requisitions/{{ node_requisition }}/import
+        method: PUT
+        headers:
+          Content-type: application/x-www-form-urlencoded
+        user: "{{ u_username }}"
+        password: "{{ u_password }}"
+        force_basic_auth: yes
+        return_content: yes
+        status_code: 200
+      
       
