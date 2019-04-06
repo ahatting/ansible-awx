@@ -16,10 +16,10 @@
         force_basic_auth: yes
         return_content: yes
         body: |
-        <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-	        <node type="A" node-label="{{ node_label }}" foreign-id="{{ node_label }}" building="node_building">
-		        <interface snmp-primary="N" status="1" ip-addr="{{ node_ipv4_address }}" descr="{{ node_description }}">
-		        </interface>
-	        </node>
+	  <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+		<node type="A" node-label="{{ node_label }}" foreign-id="{{ node_label }}" building="node_building">
+			<interface snmp-primary="N" status="1" ip-addr="{{ node_ipv4_address }}" descr="{{ node_description }}">
+			</interface>
+		</node>
       
       
