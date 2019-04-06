@@ -7,7 +7,7 @@
   tasks:
     - name: Add the node to the service
       uri:
-        url: https://{{ hostname }}/opennms/rest/requisition/{{ node_requisition }}/nodes
+        url: https://{{ hostname }}/opennms/rest/requisitions/{{ node_requisition }}/nodes
         method: POST
         headers:
           Content-type: application/xml
