@@ -18,9 +18,9 @@
         return_content: yes
       register: result
       
-    - name: Save the node ID in a variable
-      debug:
-        msg: "{{ result.json.node }}"
+    #- name: Save the node ID in a variable
+     - debug  var=result
+        #msg: "{{ result.json.node }}"
       #set_fact:
         #node_id: "{{ item.id }}"
       #with_items: "{{ result.json.node }}"
