@@ -19,4 +19,4 @@
       register: result
       
     - debug: msg="{{ item }}"
-      with_items: "{{ result.json | list }}"
+      with_items: "{{ result.json }}"
