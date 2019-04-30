@@ -18,5 +18,5 @@
         return_content: yes
       register: result
       
-  - debug: msg="{{ item }}"
-    with_items: "{{ result.json.model-import['foreign-source'] | list }}"
+    - debug: msg="{{ item }}"
+      with_items: "{{ result.json.model-import['foreign-source'] | list }}"
