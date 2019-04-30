@@ -16,9 +16,7 @@
         body_format: json
         force_basic_auth: yes
         return_content: yes
-      register: result
+      register: result   
     
-    - set_fact:
-        req_all: "{{ result.json['model-import'] | map(attribute='foreign-source') | list }}"
-    
-    - debug: var=req_all
+    - name: 
+      stdout="{{ result.json['model-import'] | map(attribute='foreign-source') | list }}"
