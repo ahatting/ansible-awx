@@ -18,5 +18,4 @@
         return_content: yes
       register: result
       
-    - debug: msg="{{ item }}"
-      with_items: "{{ result.json }}"
+    - debug: var="{{ result.json }}"
