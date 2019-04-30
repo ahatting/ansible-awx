@@ -1,0 +1,21 @@
+---
+- name: Request all active requisitions from OpenNMS
+  hosts: localhost
+  gather_facts: false
+  connection: local
+  
+  tasks:
+    - name: Do the request
+      uri:
+        url: https://{{ hostname }}/opennms/rest/requisitions/
+        method: GET
+        headers:
+          Accept: application/json
+        user: "{{ u_username }}"
+        password: "{{ u_password }}"
+        body_format: json
+        force_basic_auth: yes
+        return_content: yes
+      register: result
+      
+    - debug: var=result
