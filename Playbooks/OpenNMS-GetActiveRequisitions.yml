@@ -17,6 +17,8 @@
         force_basic_auth: yes
         return_content: yes
       register: result
-      
-    - debug: var=item.value['foreign-source']
-      with_dict: "{{ result.json['model-import'] }}"
+    
+    - set_fact:
+      req_all: "{{ result.json.data | map(attribute='foreign-source') | list }}"
+    
+    - debug: var=req_all
