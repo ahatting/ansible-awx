@@ -19,6 +19,6 @@
       register: result
     
     - set_fact:
-      req_all: "{{ result.json.data | map(attribute='foreign-source') | list }}"
+        req_all: "{{ result.json.data | map(attribute='foreign-source') | list }}"
     
     - debug: var=req_all
