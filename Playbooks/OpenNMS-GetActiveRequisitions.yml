@@ -18,5 +18,7 @@
         return_content: yes
       register: result   
     
-    - name: 
-      stdout="{{ result.json['model-import'] | map(attribute='foreign-source') | list }}"
+    - set_fact:
+        req_all: "{{ result.json['model-import'] | map(attribute='foreign-source') | list }}"
+    
+    - debug: var=req_all
