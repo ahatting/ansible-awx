@@ -18,4 +18,5 @@
         return_content: yes
       register: result
       
-    - debug: var=result.json.model-import
+    - debug: var=item.foreign-source
+      with_dict: "{{ result.json['model-import'] }}"
