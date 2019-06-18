@@ -16,11 +16,12 @@
         body_format: json
         force_basic_auth: yes
         return_content: yes
-      register: opennms_result
+      register: result
       
     #- name: Save the node ID in a variable
-    - debug: 
-        var: opennms_result.output
+    - debug: var=result
+    - set_fact:
+        list_of_nodes: "{{ (result.stdout | from_json).node | map(attribute='label') | list }}"
         #msg: "{{ result.json.node }}"
       #set_fact:
         #node_id: "{{ item.id }}"
