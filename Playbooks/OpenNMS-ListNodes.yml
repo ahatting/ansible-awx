@@ -21,7 +21,7 @@
     #- name: Save the node ID in a variable
     #- debug: var=result
     - set_fact:
-        list_of_nodes: "{{ (result.json.node | map(attribute='label') | list }}"
+        list_of_nodes: "{{ result.json.node | map(attribute='label') | list }}"
         #msg: "{{ result.json.node }}"
       #set_fact:
         #node_id: "{{ item.id }}"
