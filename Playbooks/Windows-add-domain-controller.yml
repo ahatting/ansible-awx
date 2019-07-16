@@ -1,0 +1,16 @@
+---
+- hosts: '{{ vm_hostname }}'
+  tasks:
+  - name: Ensure a server is a domain controller
+  win_domain_controller:
+    dns_domain_name: '{{ domain }}'
+    domain_admin_user: '{{ user }}'
+    domain_admin_password: '{{ pass }}' 
+    safe_mode_password: '{{ safemode }}'
+    state: domain_controller
+  register: result
+
+  - name: Reboot after creation
+    win_reboot:
+      msg: "Server config in progress; rebooting..."
+    when: result.reboot_required
