@@ -1,0 +1,11 @@
+---
+- name: Create Windows AD User Account
+  win_domain_user:
+    name: {{ samaccountname }}
+    firstname: {{ givenName }}
+    surname: {{ lastName }}
+    password: {{ password }
+    state: present
+    domain_username: {{ domain_account }}
+    domain_password: {{ domain_account_password }}
+    domain_server: {{ domain_server }}
