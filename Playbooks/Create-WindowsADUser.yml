@@ -11,6 +11,7 @@
       firstname: {{ givenName }}
       surname: {{ lastName }}
       password: {{ password }
+      path: {{ OU_DN}}
       state: present
       domain_username: {{ domain_account }}
       domain_password: {{ domain_account_password }}
