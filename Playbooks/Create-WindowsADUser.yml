@@ -7,26 +7,26 @@
   tasks:
   - name: Create Windows AD User Account
     win_domain_user:
+      name: '{{ name }}'
+      firstname: '{{ firstname }}'
+      surname: '{{ surname }}'  
+      password: '{{ password }}'
+      state: present      
       city: '{{ city }}'
       company: '{{ company }}'
       country: '{{ country }}'
       description: '{{ description }}'
       email: '{{ email }}'
-      firstname: '{{ firstname }}'      
-      name: '{{ name }}'      
-      password: '{{ password }}'
       path: '{{ path }}'
       postal_code: '{{ postal_code }}'
       state_province: '{{ state_province }}'
       street: '{{ street }}'
-      surname: '{{ surname }}'
       upn: '{{ upn }}'
-      domain_username: '{{ domain_username }}'
-      domain_password: '{{ domain_password }}'
-      state: present
       attributes:
         displayname: '{{ displayname }}'
         telephoneNumber: '{{ telephoneNumber }}'
         mobile: '{{ mobile }}'
         department: '{{ department }}'
+      domain_username: '{{ domain_username }}'
+      domain_password: '{{ domain_password }}'       
 
