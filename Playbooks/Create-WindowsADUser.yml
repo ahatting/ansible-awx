@@ -7,15 +7,14 @@
   tasks:
   - name: Create Windows AD User Account
     win_domain_user:
-      name: '{{ name }}'
-      firstname: '{{ firstname }}'
-      surname: '{{ lastname }}'
       city: '{{ city }}'
       company: '{{ company }}'
       country: '{{ country }}'
       description: '{{ description }}'
       email: '{{ email }}'
       enabled: '{{ enabled }}'
+      firstname: '{{ firstname }}'      
+      name: '{{ name }}'      
       password: '{{ password }}'
       password_expired: '{{ password_expired }}'
       password_never_expires: '{{ password_never_expires }}'
