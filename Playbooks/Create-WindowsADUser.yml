@@ -27,5 +27,8 @@
       surname: '{{ surname }}'
       upn: '{{ upn }}'
       user_cannot_change_password: '{{ user_cannot_change_password }}'
+      attributes:
+        displayname: '{{ displayname }}'
+        telephoneNumber: '{{ telephoneNumber }}'
       domain_username: '{{ domain_username }}'
       domain_password: '{{ domain_password }}'
