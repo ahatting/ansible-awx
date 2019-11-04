@@ -11,22 +11,7 @@
       firstname: '{{ ufirstname }}'
       surname: '{{ usurname }}'  
       password: '{{ upassword }}'
-      state: present      
-      city: '{{ ucity }}'
-      company: '{{ ucompany }}'
-      country: '{{ ucountry }}'
-      description: '{{ udescription }}'
-      email: '{{ uemail }}'
       path: '{{ upath }}'
-      postal_code: '{{ upostal_code }}'
-      state_province: '{{ ustate_province }}'
-      street: '{{ ustreet }}'
-      upn: '{{ uupn }}'
-      attributes:
-        displayname: '{{ udisplayname }}'
-        telephoneNumber: '{{ utelephoneNumber }}'
-        mobile: '{{ umobile }}'
-        department: '{{ udepartment }}'
+      state: present
       domain_username: '{{ udomain_username }}'
-      domain_password: '{{ udomain_password }}'       
-
+      domain_password: '{{ udomain_password }}'
