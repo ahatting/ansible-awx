@@ -31,5 +31,6 @@
         displayname: '{{ displayname }}'
         telephoneNumber: '{{ telephoneNumber }}'
         mobile: '{{ mobile }}'
+        department: '{{ department }}'
       domain_username: '{{ domain_username }}'
       domain_password: '{{ domain_password }}'
