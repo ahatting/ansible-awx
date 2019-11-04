@@ -15,4 +15,3 @@
       state: present
       domain_username: '{{ domain_account }}'
       domain_password: '{{ domain_account_password }}'
-      domain_server: '{{ domain_server }}'
