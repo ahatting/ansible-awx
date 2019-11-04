@@ -30,5 +30,6 @@
       attributes:
         displayname: '{{ displayname }}'
         telephoneNumber: '{{ telephoneNumber }}'
+        mobile: '{{ mobile }}'
       domain_username: '{{ domain_username }}'
       domain_password: '{{ domain_password }}'
