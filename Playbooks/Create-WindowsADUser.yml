@@ -12,7 +12,6 @@
       country: '{{ country }}'
       description: '{{ description }}'
       email: '{{ email }}'
-      enabled: '{{ enabled }}'
       firstname: '{{ firstname }}'      
       name: '{{ name }}'      
       password: '{{ password }}'
