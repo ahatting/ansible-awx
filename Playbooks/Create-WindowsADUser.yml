@@ -12,8 +12,11 @@
       surname: '{{ usurname }}'  
       password: '{{ upassword }}'
       path: '{{ upath }}'
+      email: '{{ umail }}'
+      upn: '{{ umail }}'
       state: present
       attributes:
         displayname: '{{ udisplayname }}'
+        cn: '{{ udisplayname }}'
       domain_username: '{{ udomain_username }}'
       domain_password: '{{ udomain_password }}'
