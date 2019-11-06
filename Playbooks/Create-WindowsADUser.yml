@@ -17,6 +17,6 @@
       state: present
       attributes:
         displayname: '{{ udisplayname }}'
-        cn: '{{ udisplayname }}'
+        name: '{{ udisplayname }}'
       domain_username: '{{ udomain_username }}'
       domain_password: '{{ udomain_password }}'
