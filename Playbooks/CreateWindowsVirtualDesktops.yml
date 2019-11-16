@@ -15,7 +15,7 @@
       validate_certs: no
       esxi_hostname: '{{ item.1 }}'
       datacenter: 'Datacenter'
-      folder: Hosts
+      folder: 'Virtual Machines'
       name: "{{ hostname + '_' }}{{ 99999999 | random | to_uuid }}"
       state: present
       guest_id: windows9_64guest
