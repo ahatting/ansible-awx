@@ -21,5 +21,9 @@
       guest_id: windows9_64guest
       template: '{{ OS }}'
       wait_for_ip_address: no
+      disk:
+      - size_mb: 10
+        type: thin
+        datastore: datastore
    # with_sequence: start=1 end='{{ amount }}'
     loop: "{{ range(0, amount) | product(esx_hosts) | list }}"
