@@ -22,7 +22,7 @@
       template: '{{ OS }}'
       wait_for_ip_address: no
       disk:
-      - size_mb: 10
+      - size_gb: 10
         type: thin
         datastore: datastore
    # with_sequence: start=1 end='{{ amount }}'
