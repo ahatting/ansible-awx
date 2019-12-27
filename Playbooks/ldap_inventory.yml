@@ -1,7 +1,7 @@
 ---
 plugin: ldap_inventory
-domain: {{ domain }}
-search_ou: {{ search_ou }}
+domain: "{{ domain }}"
+search_ou: "{{ search_ou }}"
 auth_type: simple
-username: {{ username }}
-password: {{ password }}
+username: "{{ username }}"
+password: "{{ password }}"
