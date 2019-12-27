@@ -1,0 +1,7 @@
+---
+    plugin: ldap_inventory
+    domain: {{ LDAP_URI }}
+    search_ou: {{ LDAP_SEARCHOU }}
+    auth_type: simple
+    username: {{ LDAP_USERNAME }}
+    password: {{ LDAP_PASSWORD }}
