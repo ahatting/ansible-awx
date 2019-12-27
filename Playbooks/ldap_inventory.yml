@@ -1,7 +1,10 @@
 ---
-plugin: ldap_inventory
-domain: "{{ domain }}"
-search_ou: "{{ search_ou }}"
-auth_type: simple
-username: "{{ username }}"
-password: "{{ password }}"
+plugin: ad
+server: '{{ ldap_server }}'
+port: '{{ ldap_port }}'
+base: '{{ ldap_basedn }}'
+username: '{{ ldap_username }}' # DOMAIN\samaccountname or distinguishedname
+password: '{{ ldap_password }}'
+filter: ""
+ansible group: '{{ ldap_group }}'
+var attribute: info
