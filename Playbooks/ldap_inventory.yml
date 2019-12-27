@@ -1,3 +1,4 @@
+---
 plugin: ldap_inventory
 domain: {{ domain }}
 search_ou: {{ search_ou }}
