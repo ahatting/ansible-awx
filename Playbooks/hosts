@@ -1,35 +1,20 @@
-{
-    "_meta": {
-        "hostvars": {}
-    }, 
-    "all": {
-        "children": [
-            "lab", 
-            "ungrouped"
-        ]
-    }, 
-    "lab": {
-        "children": [
-            "lab_servers"
-        ]
-    }, 
-    "lab_servers": {
-        "children": [
-            "lab_servers_hypervisor", 
-            "lab_servers_web"
-        ]
-    }, 
-    "lab_servers_hypervisor": {
-        "hosts": [
-            "hyperv-01", 
-            "hyperv-03", 
-            "web02"
-        ]
-    }, 
-    "lab_servers_web": {
-        "hosts": [
-            "web01", 
-            "web05"
-        ]
-    }
-}
+all:
+    children:
+        - lab
+        - ungrouped
+lab:
+    children:
+        - lab_servers
+lab_servers:
+    children:
+        - lab_servers_hypervisor
+        - lab_servers_web
+lab_servers_hypervisor:
+    hosts:
+        - hyperv-01
+        - hyperv-03
+        - web02
+lab_servers_web:
+    hosts:
+        - web01
+        - web05
