@@ -1,0 +1,30 @@
+{
+  "domain_controllers": {
+    "hosts": [
+      "DC00", 
+      "DC01"
+    ], 
+    "children": [], 
+    "vars": {}
+  }, 
+  "_meta": {
+    "hostvars": {
+      "DC01": {
+        "dn": "CN=DC01,OU=Domain Controllers,DC=ArmandIT,DC=com", 
+        "name": "DC01.ArmandIT.com", 
+        "osname": "Windows Server 2019 Standard", 
+        "inventory_name": "DC01", 
+        "osversion": "10.0 (17763)", 
+        "cn": "DC01"
+      }, 
+      "DC00": {
+        "dn": "CN=DC00,OU=Domain Controllers,DC=ArmandIT,DC=com", 
+        "name": "DC00.ArmandIT.com", 
+        "osname": "Windows Server 2012 Datacenter", 
+        "inventory_name": "DC00", 
+        "osversion": "6.2 (9200)", 
+        "cn": "DC00"
+      }
+    }
+  }
+}
