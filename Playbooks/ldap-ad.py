@@ -63,14 +63,12 @@ class ADAnsibleInventory():
     def org_hosts(self, basedn):
         # Removes CN,OU, and DC and places into a list
         basedn_list = (re.sub(r"..=", "", basedn)).split(",")
-        print(basedn_list)
         for computer in self.results:
             org_list=[]
             if 'dn' in computer:
                 org_list = (re.sub(r"..=", "", computer['dn'])).split(",")
                 # Remove hostname
             if org_list:
-                print(org_list[0])
                 del org_list[0]
                 
 
