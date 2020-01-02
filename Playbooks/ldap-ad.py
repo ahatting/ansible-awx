@@ -28,6 +28,7 @@ class ADAnsibleInventory():
         basedn = os.environ.get("LDAP_BASEDN")
         ldapuri = os.environ.get("LDAP_URI")
         port = os.environ.get("LDAP_PORT")
+        cafile = ""
         #adfilter = "(&(sAMAccountType=805306369))"
         adfilter = "(objectClass=computer)"
 
