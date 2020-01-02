@@ -29,7 +29,8 @@ class ADAnsibleInventory():
         ldapuri = os.environ.get("LDAP_URI")
         port = os.environ.get("LDAP_PORT")
         ca_file = ''
-        adfilter = "(&(sAMAccountType=805306369))"
+        #adfilter = "(&(sAMAccountType=805306369))"
+        adfilter = "(objectClass=computer)"
 
         self.inventory = {"_meta": {"hostvars": {}}}
         self.ad_connect(ldapuri, username, password, port, ca_file)
@@ -63,19 +64,25 @@ class ADAnsibleInventory():
         # Removes CN,OU, and DC and places into a list
         basedn_list = (re.sub(r"..=", "", basedn)).split(",")
         for computer in self.results:
-            org_list = (re.sub(r"..=", "", computer['dn'])).split(",")
-            # Remove hostname
-            del org_list[0]
+            org_list=[]
+            if 'dn' in computer:
+                org_list = (re.sub(r"..=", "", computer['dn'])).split(",")
+                # Remove hostname
+            if 0 in org_list:
+                del org_list[0]
+                
 
             # Removes all excess OUs and DC
             for count in range(0, (len(basedn_list)-1)):
-                del org_list[-1]
+                if -1 in org_list:
+                    del org_list[-1]
 
             # Reverse list so top group is first
             org_list.reverse()
 
             org_range = range(0, (len(org_list)))
             for orgs in org_range:
+                #print(orgs)
                 if computer['attributes']['dNSHostName']:
                     if orgs == org_range[-1]:
                         self.add_host(org_list[orgs],
