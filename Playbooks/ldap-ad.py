@@ -77,7 +77,7 @@ class ADAnsibleInventory():
             # Removes all excess OUs and DC
             
             for count in range(0, (len(basedn_list)-1)):
-                if -1 in org_list:
+                if org_list:
                     del org_list[-1]
 
             # Reverse list so top group is first
@@ -85,7 +85,6 @@ class ADAnsibleInventory():
 
             org_range = range(0, (len(org_list)))
             for orgs in org_range:
-                #print(orgs)
                 if computer['attributes']['dNSHostName']:
                     if orgs == org_range[-1]:
                         self.add_host(org_list[orgs],
