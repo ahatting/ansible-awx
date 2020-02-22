@@ -5,5 +5,5 @@
   tasks:
       - block:
            - name: Fetch account password from Password Manager Pro
-               debug:
-                 msg: "{{ lookup('passwordmanagerpro','{{ resourcename }}', '{{ accountName }}') }}"
+             debug:
+               msg: "{{ lookup('passwordmanagerpro','{{ resourcename }}', '{{ accountName }}') }}"
