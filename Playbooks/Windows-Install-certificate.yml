@@ -6,7 +6,8 @@
       - block:
            - name: Fetch account password from Password Manager Pro
            - set_fact:
-               password: "{{ lookup('passwordmanagerpro','{{ target }} ', '{{ admin_user }} ') }}
+               username: '{{ admin_user }}'
+               password: "{{ lookup('passwordmanagerpro','{{ target }}', '{{ admin_user }}') }}"
           - name: Download certificate
             win_get_url:
               url: '{{ cert_url }}'
@@ -15,7 +16,7 @@
             win_certificate_store:
               path: C:\temp\certificate.pfx
               file_type: '{{ cert_type }}'
-              password: '{{ password }}'
+              password: '{{ cert_password }}'
               store_location: '{{ cert_storelocation }}'
               key_storage: '{{ cert_keystorage }}'
               state: present
