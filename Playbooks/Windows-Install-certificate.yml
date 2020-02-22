@@ -4,7 +4,7 @@
   gather_facts: false
 
   tasks:
-  - name: Import certificate be used by IIS
+  - name: Import the certificate
     win_certificate_store:
       path: {{ cert-file }}
       file_type: {{ cert-type }}
