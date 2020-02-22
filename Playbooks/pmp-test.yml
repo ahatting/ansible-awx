@@ -6,4 +6,4 @@
       - block:
            - name: Fetch account password from Password Manager Pro
              debug:
-               msg: "{{ lookup('passwordmanagerpro','{{ resourcename }}', '{{ accountName }}') }}"
+               msg: "{{ lookup('passwordmanagerpro','{{ resourcename }}', '{{ accountname }}') }}"
