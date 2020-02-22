@@ -1,6 +1,6 @@
 ---
 - name: Download and install a PFX certificate on a Windows host.
-  hosts: '{{ target }}'
+  hosts: '{{ resourcename }}'
 
   tasks:
       - block:
