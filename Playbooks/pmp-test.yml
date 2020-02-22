@@ -1,0 +1,9 @@
+---
+- name: Download and install a PFX certificate on a Windows host.
+  hosts: '{{ target }}'
+
+  tasks:
+      - block:
+           - name: Fetch account password from Password Manager Pro
+               debug:
+                 msg: "{{ lookup('passwordmanagerpro','{{ resourcename }}', '{{ accountName }}') }}"
