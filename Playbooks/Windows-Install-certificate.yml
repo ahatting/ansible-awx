@@ -2,9 +2,7 @@
 - name:  Install any SSL certificate on a Windows host
   hosts: '{{ target }}'
   gather_facts: false
-  
-    tasks:
-    - name
+
   tasks:
   - name: Import certificate be used by IIS
     win_certificate_store:
