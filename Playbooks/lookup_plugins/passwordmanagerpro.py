@@ -37,7 +37,7 @@ def getPMPResourceAccountDetails(resourceId,accountId):
        accountDetails = json.loads(details.get("ACCOUNTDETAILS"))
        if accountDetails.get("PASSWORD_REASON"):
           raise AnsibleError("Couldn't able to read password from Password Manager Pro : ",accountDetails.get("PASSWORD_REASON"))
-       else:						  }
+       else:						  
           password = accountDetails.get("PASSWORD")   
           return [password]    
     else:
@@ -55,7 +55,7 @@ class LookupModule(LookupBase):
         headers = {'Content-Type':'application/json'}    
         response = open_url(url, method='GET' ,headers=headers,validate_certs=False)
         resp_json = json.loads(response.read().decode('utf-8'))
-        resp_json = resp_json.get("operation");
+        resp_json = resp_json.get("operation")
         if resp_json.get("Details"):
           details = resp_json.get("Details")
           resourceId = details.get("RESOURCEID")
