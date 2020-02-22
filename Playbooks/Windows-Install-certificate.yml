@@ -5,7 +5,7 @@
   tasks:
       - block:
           - name: Download certificate
-            get_url:
+            win_get_url:
               url: '{{ cert_url }}'
               dest: C:\temp\certificate.pfx
           - name: Import the certificate
