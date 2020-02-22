@@ -1,19 +1,20 @@
 ---
-- name:  Download and install a PFX certificate on a Windows host.
+- name: Download and install a PFX certificate on a Windows host.
   hosts: '{{ target }}'
-  gather_facts: false
 
   tasks:
-  - name: Download certificate
-  get_url:
-    url: {{ cert_url }}
-    dest: C:\temp\certificate.pfx
-  
-  - name: Import the certificate
-    win_certificate_store:
-      path: C:\temp\certificate.pfx
-      file_type: {{ cert_type }}
-      password: {{ cert_password }}
-      store_location: {{ cert_storelocation }}
-      key_storage: {{ cert_keystorage }}
-      state: present
+      - block:
+          - name: Download certificate
+            get_url:
+              url: {{ cert_url }}
+              dest: C:\temp\certificate.pfx
+          - name: List missing updates
+            debug: var=update_count
+          - name: Import the certificate
+            win_certificate_store:
+              path: C:\temp\certificate.pfx
+              file_type: {{ cert_type }}
+              password: {{ cert_password }}
+              store_location: {{ cert_storelocation }}
+              key_storage: {{ cert_keystorage }}
+              state: present
