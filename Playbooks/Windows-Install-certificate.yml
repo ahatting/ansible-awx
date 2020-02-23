@@ -18,7 +18,7 @@
           store_location: '{{ cert_storelocation }}'
           key_storage: '{{ cert_keystorage }}'
           state: present
-       - name: Remove the certificate from the Temp folder
-         win_file:
-           path: C:\temp\certificate.pfx
-           state: absent
+      - name: Remove the certificate from the Temp folder
+        win_file:
+          path: C:\temp\certificate.pfx
+          state: absent
