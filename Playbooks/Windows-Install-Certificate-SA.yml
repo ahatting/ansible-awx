@@ -9,10 +9,11 @@
 
   tasks:
       - block:
-          - name: Download cert to temp, install and remove from temp
+          - name: Download certificate to temporary folder
             win_get_url:
               url: '{{ cert_url }}'
               dest: C:\temp\certificate.pfx
+          - name: Install certificate    
             win_certificate_store:
               path: C:\temp\certificate.pfx
               file_type: '{{ cert_type }}'
@@ -20,6 +21,7 @@
               store_location: '{{ cert_storelocation }}'
               key_storage: '{{ cert_keystorage }}'
               state: present
+           - name: Remove certificate from temporary folder
             win_file:
               path: C:\temp\certificate.pfx
               state: absent
