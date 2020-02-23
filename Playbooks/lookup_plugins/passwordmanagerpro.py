@@ -48,7 +48,7 @@ class LookupModule(LookupBase):
     def run(self, terms, variables=None, **kwargs):
         resourceName = terms[0]
         accountName = terms[1]
-        url = '{0}/restapi/json/v1/resources/getResourceIdAccountId?APP_AUTHTOKEN={1}&APP_NAME=Ansible&RESOURCENAME={2}&ACCOUNTNAME={3}'.format(PMP_URL, PMP_AUTHTOKEN, urllib.parse.quote(resourceName) , urllib.parse.quote(accountName))  
+        url = '{0}/restapi/json/v1/resources/getResourceIdAccountId?APP_AUTHTOKEN={1}&APP_NAME=ANSIBLE&RESOURCENAME={2}&ACCOUNTNAME={3}'.format(PMP_URL, PMP_AUTHTOKEN, urllib.parse.quote(resourceName) , urllib.parse.quote(accountName))  
         print (url)
         headers = {'Content-Type':'application/json'}    
         response = open_url(url, method='GET' ,headers=headers,validate_certs=False)
