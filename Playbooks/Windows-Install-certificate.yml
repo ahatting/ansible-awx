@@ -3,7 +3,7 @@
   hosts: '{{ target }}'
   vars:
     ansible_user: '{{ accountname }}'
-    ansible_password: '{{ pmp_password }}'
+    ansible_password: "{{ lookup('passwordmanagerpro','{{ resourcename }}', '{{ accountname }}') }}"
 
   tasks:
       - block:
