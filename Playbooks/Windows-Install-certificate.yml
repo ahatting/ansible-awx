@@ -1,13 +1,12 @@
 ---
 - name: Download and install a PFX certificate on a Windows host.
   hosts: '{{ target }}'
+  vars:
+    ansible_user: '{{ accountname }}'
+    ansible_password: '{{ pmp_password }}'
 
   tasks:
       - block:
-           - name: Fetch account password from Password Manager Pro
-             set_fact:
-               ansible_user: '{{ accountname }}'
-               ansible_password: '{{ pmp_password }}'
            - name: Download certificate
              win_get_url:
                url: '{{ cert_url }}'
