@@ -2,12 +2,13 @@
 - name: Download and install a PFX certificate on a Windows host.
   hosts: '{{ target }}'
   gather_facts: False
-  vars:
-    ansible_user: '{{ accountname }}'
-    ansible_password: "{{ lookup('passwordmanagerpro','{{ resourcename }}', '{{ accountname }}') }}"
+
 
   tasks:
       - block:
+        vars:
+          ansible_user: '{{ accountname }}'
+          ansible_password: "{{ lookup('passwordmanagerpro','{{ resourcename }}', '{{ accountname }}') }}"
           - name: Download certificate and save in Temp
             win_get_url:
               url: '{{ cert_url }}'
