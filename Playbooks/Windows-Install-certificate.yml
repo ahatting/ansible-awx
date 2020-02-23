@@ -8,15 +8,15 @@
            - set_fact:
                username: '{{ accountname }}'
                password: '{{ pmp_password }}'
-          - name: Download certificate
-            win_get_url:
-              url: '{{ cert_url }}'
-              dest: C:\temp\certificate.pfx
-          - name: Import the certificate
-            win_certificate_store:
-              path: C:\temp\certificate.pfx
-              file_type: '{{ cert_type }}'
-              password: '{{ cert_password }}'
-              store_location: '{{ cert_storelocation }}'
-              key_storage: '{{ cert_keystorage }}'
-              state: present
+           - name: Download certificate
+             win_get_url:
+               url: '{{ cert_url }}'
+               dest: C:\temp\certificate.pfx
+           - name: Import the certificate
+             win_certificate_store:
+               path: C:\temp\certificate.pfx
+               file_type: '{{ cert_type }}'
+               password: '{{ cert_password }}'
+               store_location: '{{ cert_storelocation }}'
+               key_storage: '{{ cert_keystorage }}'
+               state: present
