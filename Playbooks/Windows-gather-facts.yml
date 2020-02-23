@@ -1,0 +1,9 @@
+---
+- name: Gather Windows Facts 
+  hosts: all
+  vars:
+    ansible_user: '{{ accountname }}'
+    ansible_password: "{{ lookup('passwordmanagerpro','{{ resourcename }}', '{{ accountname }}') }}"
+  tasks:
+    - debug: var=vars
+    - debug: var=hostvars[inventory_hostname]

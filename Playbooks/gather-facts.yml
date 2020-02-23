@@ -1,6 +1,0 @@
----
-- name: Gather Windows Facts 
-  hosts: all
-  tasks:
-    - debug: var=vars
-    - debug: var=hostvars[inventory_hostname]
