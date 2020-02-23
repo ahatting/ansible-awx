@@ -6,7 +6,7 @@
       - block:
            - name: Fetch account password from Password Manager Pro
            - set_fact:
-               username: '{{ admin_user }}'
+               username: '{{ accountname }}'
                password: '{{ pmp_password }}'
           - name: Download certificate
             win_get_url:
