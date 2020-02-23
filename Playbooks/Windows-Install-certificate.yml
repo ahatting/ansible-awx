@@ -7,7 +7,7 @@
            - name: Fetch account password from Password Manager Pro
            - set_fact:
                username: '{{ admin_user }}'
-               password: "{{ lookup('passwordmanagerpro','{{ target }}', '{{ admin_user }}') }}"
+               password: '{{ pmp_password }}'
           - name: Download certificate
             win_get_url:
               url: '{{ cert_url }}'
