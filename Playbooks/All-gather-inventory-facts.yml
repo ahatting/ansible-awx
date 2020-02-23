@@ -1,5 +1,5 @@
 ---
-- name: Gather Windows Facts 
+- name: Gather facts for an inventory
   hosts: all
   vars:
     ansible_user: '{{ accountname }}'
