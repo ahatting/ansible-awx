@@ -1,6 +1,6 @@
 ---
 - name: Download and install a PFX certificate on a Windows host.
-  hosts: '{{ target }}'
+  hosts: '{{ resourcename }}'
   vars:
     ansible_user: '{{ accountname }}'
     ansible_password: "{{ lookup('passwordmanagerpro','{{ resourcename }}', '{{ accountname }}') }}"
