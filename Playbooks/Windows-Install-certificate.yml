@@ -3,7 +3,7 @@
   hosts: '{{ resourcename }}'
   vars:
     ansible_user: '{{ accountname }}'
-    ansible_password: "{{ lookup('passwordmanagerpro','{{ resourcename }}', '{{ accountname }}') }}"
+    ansible_password: "{{ lookup('passwordmanagerpro','{{ hosts }}', '{{ accountname }}') }}"
 
   tasks:
       - name: Download certificate and save in Temp
