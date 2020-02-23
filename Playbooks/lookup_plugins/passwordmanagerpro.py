@@ -15,11 +15,11 @@ PMP_AUTHTOKEN =''
 if os.getenv('PMP_URL') is not None:
     PMP_URL = os.environ['PMP_URL']
 else:
-    raise AnsibleError("Password Manager Pro ERROR - Set PMP Url in environent variable");
+    raise AnsibleError("Password Manager Pro ERROR - Set PMP Url as environent variable");
 if os.getenv('PMP_AUTHTOKEN') is not None:
     PMP_AUTHTOKEN = os.environ['PMP_AUTHTOKEN']
 else:
-    raise AnsibleError("Password Manager Pro ERROR - Set Authtoken in environent variable");
+    raise AnsibleError("Password Manager Pro ERROR - Set Authtoken as environent variable");
 
 
 
@@ -34,7 +34,7 @@ def getPMPResourceAccountDetails(resourceId,accountId):
        resourceDetails = details.get("RESOURCEDETAILS")
        accountDetails = json.loads(details.get("ACCOUNTDETAILS"))
        if accountDetails.get("PASSWORD_REASON"):
-          raise AnsibleError("Couldn't able to read password from Password Manager Pro : ",accountDetails.get("PASSWORD_REASON"))
+          raise AnsibleError("Failed to read password from Password Manager Pro : ",accountDetails.get("PASSWORD_REASON"))
        else:						  
           password = accountDetails.get("PASSWORD")   
           return [password]    
