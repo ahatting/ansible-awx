@@ -24,7 +24,7 @@ else:
 
 
 def getPMPResourceAccountDetails(resourceId,accountId):
-    url = '{0}/restapi/json/v1/resources/getResourceAccountDetails?APP_AUTHTOKEN={1}&APP_NAME=Ansible&RESOURCEID={2}&ACCOUNTID={3}'.format(PMP_URL, PMP_AUTHTOKEN, resourceId , accountId)  
+    url = '{0}/restapi/json/v1/resources/getResourceAccountDetails?APP_AUTHTOKEN={1}&APP_NAME=ANSIBLE&RESOURCEID={2}&ACCOUNTID={3}'.format(PMP_URL, PMP_AUTHTOKEN, resourceId , accountId)  
     print (url)
     headers = {'Content-Type':'application/json'}    
     response = open_url(url, method='GET' ,headers=headers,validate_certs=False)
