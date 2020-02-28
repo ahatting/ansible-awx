@@ -1,10 +1,15 @@
+---
+- name: Add or remove a registry key
+  hosts: '{{ resourcename }}'
+  gather_facts: False
 
 
-
-- name: Change default mouse trailing settings for new users
-  win_regedit:
-    path: HKLM:\ANSIBLE\Control Panel\Mouse
-    name: MouseTrails
-    data: 10
-    type: str
-    state: present
+  tasks:
+      - block:
+          - name: Adds or removes the key
+            win_regedit:
+              path: '{{ reg_keypath }}'
+              name: '{{ reg_keyname }}'
+              data: '{{ reg_keydata }}'
+              type: '{{ reg_keytype }}'
+              state: '{{reg_keystate }}'
