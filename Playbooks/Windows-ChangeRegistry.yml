@@ -1,0 +1,10 @@
+
+
+
+- name: Change default mouse trailing settings for new users
+  win_regedit:
+    path: HKLM:\ANSIBLE\Control Panel\Mouse
+    name: MouseTrails
+    data: 10
+    type: str
+    state: present
