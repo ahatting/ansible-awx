@@ -2,7 +2,9 @@
 - name: Add or remove a registry key
   hosts: '{{ resourcename }}'
   gather_facts: False
-
+  vars:
+    ansible_user: '{{ accountname }}'
+    ansible_password: "{{ lookup('passwordmanagerpro','{{ inventory_hostname }}', '{{ accountname }}') }}"
 
   tasks:
       - block:
