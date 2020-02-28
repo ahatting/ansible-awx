@@ -3,8 +3,8 @@
   hosts: '{{ resourcename }}'
   gather_facts: False
   vars:
-    ansible_user: '{{ pmp_accountname }}'
-    ansible_password: "{{ lookup('passwordmanagerpro','{{ pmp_resourcename }}', '{{ pmp_accountname }}') }}"
+    ansible_user: '{{ accountname }}'
+    ansible_password: "{{ lookup('passwordmanagerpro','{{ inventory_hostname }}', '{{ accountname }}') }}"
 
   tasks:
       - block:
