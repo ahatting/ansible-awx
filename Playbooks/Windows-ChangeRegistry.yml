@@ -1,7 +1,6 @@
 ---
 - name: Add or remove a registry key
   hosts: '{{ resourcename }}'
-  no_log: True
   gather_facts: False
   vars:
     ansible_user: '{{ pmp_accountname }}'
