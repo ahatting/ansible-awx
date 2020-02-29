@@ -8,10 +8,17 @@
 
   tasks:
       - block:
-          - name: Adds or removes the key
+          - name: Adds the key
+            win_regedit:
+              path: '{{ reg_keypath }}'
+            tags:
+            - key  
+          - name: Adds or removes the keyvalue
             win_regedit:
               path: '{{ reg_keypath }}'
               name: '{{ reg_keyname }}'
               data: '{{ reg_keydata }}'
               type: '{{ reg_keytype }}'
               state: '{{reg_keystate }}'
+            tags:
+            - keyvalue
