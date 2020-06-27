@@ -6,7 +6,8 @@
   tasks:
   - name: Create the user account
     win_domain_user:
-      username: '{{ name }}'
+      domain_username: '{{ ansible_user }}'
+      domain_password: '{{ ansible_password }}'
       name: '{{ name }}'
       firstname: '{{ firstname }}'
       surname: '{{ surname }}'
