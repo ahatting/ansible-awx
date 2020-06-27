@@ -8,7 +8,12 @@
     win_domain_user:
       domain_username: '{{ ansible_user }}'
       domain_password: '{{ ansible_password }}'
+      attributes:
+        displayname: '{{ displayname }}'
+        department: '{{ department }}'
+        samaccountname: '{{ name }}'      
       name: '{{ displayname }}'
+      identity: '{{ name }}'
       firstname: '{{ firstname }}'
       surname: '{{ surname }}'
       password: '{{ password }}'
@@ -17,9 +22,5 @@
       upn: '{{ email }}'
       company: '{{ company }}'
       update_password: on_create
-      attributes:
-        displayname: '{{ displayname }}'
-        department: '{{ department }}'
-        samaccountname: '{{ name }}'
       enabled: '{{ status }}'
       state: present 
