@@ -1,10 +1,7 @@
 ---
 - name: Create an Active Directory User Account
-  hosts: '{{ domain_controller }}'
+  hosts: all
   gather_facts: false
-  vars:
-    ansible_user: '{{ domain_accountname }}'
-    ansible_password: "{{ domain_accountpassword }}"
   
   tasks:
   - name: Create the user account
