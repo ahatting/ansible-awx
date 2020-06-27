@@ -6,6 +6,7 @@
   tasks:
   - name: Create the user account
     win_domain_user:
+      username: '{{ name }}'
       name: '{{ name }}'
       firstname: '{{ firstname }}'
       surname: '{{ surname }}'
