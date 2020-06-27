@@ -8,6 +8,7 @@
     win_domain_user:
       domain_username: '{{ ansible_user }}'
       domain_password: '{{ ansible_password }}'
+      domain_server: '{{ domain_controller }}'
       name: '{{ name }}'
       firstname: '{{ firstname }}'
       surname: '{{ surname }}'
