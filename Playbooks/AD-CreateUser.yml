@@ -7,9 +7,6 @@
   - name: Create the user account
     win_domain_user:
       name: '{{ name }}'
-      domain_server: '{{ domain_controller }}'
-      domain_username: '{{ domain_username }}'
-      domain_password: '{{ domain_password }}'
       firstname: '{{ firstname }}'
       surname: '{{ surname }}'
       password: '{{ password }}'
