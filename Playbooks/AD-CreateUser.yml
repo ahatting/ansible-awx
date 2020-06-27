@@ -11,8 +11,9 @@
       attributes:
         displayname: '{{ displayname }}'
         department: '{{ department }}'
-        samaccountname: '{{ name }}'      
-      name: '{{ displayname }}'
+        samaccountname: '{{ name }}'
+        cn: '{{ displayname }}'
+      name: '{{ name }}'
       identity: '{{ name }}'
       firstname: '{{ firstname }}'
       surname: '{{ surname }}'
