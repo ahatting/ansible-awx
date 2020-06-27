@@ -8,7 +8,7 @@
     win_domain_user:
       domain_username: '{{ ansible_user }}'
       domain_password: '{{ ansible_password }}'
-      name: '{{ name }}'
+      name: '{{ displayname }}'
       firstname: '{{ firstname }}'
       surname: '{{ surname }}'
       password: '{{ password }}'
@@ -20,5 +20,6 @@
       attributes:
         displayname: '{{ displayname }}'
         department: '{{ department }}'
+        samaccountname: '{{ name }}'
       enabled: '{{ status }}'
       state: present 
