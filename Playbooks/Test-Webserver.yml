@@ -6,9 +6,5 @@
     webserver: "{{ websiteaddress }}"  
 
   tasks:
-  - name: Import the role
-    import_role:
-      name: '30.ansible_ssllabs_scan'
-
   - name: run the SSLLabs scan tool
-    command: ssllabs-scan --grade {{ websiteaddress }}
+    command: ansible-galaxy role install -r requirements.yaml
