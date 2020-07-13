@@ -9,6 +9,10 @@
   tasks:
   - name:  the role
     command: ansible-galaxy install -r ./roles/requirements.yml
-    
+  
+  tasks:
+  - include_role:
+      name: ansible_ssllabs_scan  
+  
   - name: run the SSLLabs scan tool
     command: ssllabs-scan --grade {{ websiteaddress }}
