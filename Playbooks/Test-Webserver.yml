@@ -3,8 +3,11 @@
   hosts: localhost
   gather_facts: no
   vars:
-    webserver: "{{ websiteaddress }}"  
+    webserver: "{{ websiteaddress }}"
+  roles:
+    - 030.ansible_ssllabs_scan
+  
 
   tasks:
   - name: run the SSLLabs scan tool
-    command: ansible-galaxy role install -r ./roles/requirements.yml
+    command: ssllabs-scan --grade {{ websiteaddress }}
