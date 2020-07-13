@@ -1,0 +1,3 @@
+# from Ansible Galaxy
+roles:
+  - name: 030.ansible_ssllabs_scan
