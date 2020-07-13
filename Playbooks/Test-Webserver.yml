@@ -10,7 +10,6 @@
   - name:  the role
     command: ansible-galaxy install -r ./roles/requirements.yml
   
-  tasks:
   - include_role:
       name: 030.ansible_ssllabs_scan  
   
