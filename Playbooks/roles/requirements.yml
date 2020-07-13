@@ -1,4 +1,4 @@
 ---
 # from Ansible Galaxy
 roles:
-  - name: yatesr.timezone
+  - name: 030.ansible_ssllabs_scan
