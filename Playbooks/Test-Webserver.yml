@@ -7,8 +7,8 @@
   
 
   tasks:
-  - name:  the role
-    command: ansible-galaxy install -r ./roles/requirements.yml
+  #- name:  install the role
+  #  command: ansible-galaxy install -r ./roles/requirements.yml
   
   - include_role:
       name: 030.ansible_ssllabs_scan  
