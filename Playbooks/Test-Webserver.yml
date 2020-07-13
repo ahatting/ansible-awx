@@ -7,4 +7,4 @@
 
   tasks:
   - name: run the SSLLabs scan tool
-    command: ansible-galaxy role install -r requirements.yaml
+    command: ansible-galaxy role install -r ./roles/requirements.yml
