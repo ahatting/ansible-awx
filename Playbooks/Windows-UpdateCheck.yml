@@ -9,4 +9,4 @@
             win_updates: state=searched
             register: update_count
           - name: List missing updates
-            debug: var=update_count
+            debug: var=update_count.kb
